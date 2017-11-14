@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bgImageName</key>
+	<string></string>
+	<key>Items</key>
+	<array>
+		<dict>
+			<key>imageName</key>
+			<string>tab1_deft.png</string>
+			<key>selectImageName</key>
+			<string>tab1_slct.png</string>
+			<key>title</key>
+			<string>报价牌</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>tab2_deft.png</string>
+			<key>selectImageName</key>
+			<string>tab2_slct.png</string>
+			<key>title</key>
+			<string>产品试算</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>tab4_deft.png</string>
+			<key>selectImageName</key>
+			<string>tab4_slct.png</string>
+			<key>title</key>
+			<string>我的</string>
+		</dict>
+	</array>
+</dict>
+</plist>
