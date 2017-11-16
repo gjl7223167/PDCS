@@ -23,4 +23,5 @@ platform :ios, '9.0'
         pod "PXAlertView", "~> 0.1.0"
         pod "SVProgressHUD"
         pod "SDWebImage", "~> 4.0"
+        pod "Masonry"
 end

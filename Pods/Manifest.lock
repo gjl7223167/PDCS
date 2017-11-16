@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - IQKeyboardManager (4.0.13)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - PXAlertView (0.1.1)
   - SDWebImage (4.1.0):
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - IQKeyboardManager (~> 4.0.13)
+  - Masonry
   - MBProgressHUD (~> 1.0.0)
   - PXAlertView (~> 0.1.0)
   - SDWebImage (~> 4.0)
@@ -33,11 +35,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PXAlertView: bb8a7e6bb95f73fe3fe091cacd279b683460f084
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 23760798ebb1108b8ada0469bef1d37faae95d52
+PODFILE CHECKSUM: 34e28ea7bea3bc6bbd57283e361d386e98b7d545
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

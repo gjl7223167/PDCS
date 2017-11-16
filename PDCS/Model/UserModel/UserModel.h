@@ -22,6 +22,7 @@
  */
 @property(nonatomic,copy)NSString * aStatus;
 
+@property (nonatomic,strong) NSMutableDictionary * userDictionary;
 -(id)initWithDataModel:(NSDictionary *)dict;
 /*
  

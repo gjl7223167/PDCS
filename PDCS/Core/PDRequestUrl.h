@@ -215,7 +215,8 @@
 #define PDCR_CPJGype_Url @"mssia/other/queryOrgConditionInfo"
 
 
-
+#pragma mark ---用户信息查询
+#define PDCR_QueryUserInfo_URL @"mssia/user/queryUserInfo"
 
 #define PDC
 #endif /* PDRequestUrl_h */

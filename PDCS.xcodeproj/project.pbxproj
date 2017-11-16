@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8615B41FBD912700165365 /* DL_lingdangIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8615B01FBD912600165365 /* DL_lingdangIcon@2x.png */; };
+		0D8615B51FBD912700165365 /* DL_hasMessageIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8615B11FBD912600165365 /* DL_hasMessageIcon@2x.png */; };
+		0D8615B61FBD912700165365 /* DL_lingdangIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8615B21FBD912700165365 /* DL_lingdangIcon@3x.png */; };
+		0D8615B71FBD912700165365 /* DL_hasMessageIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8615B31FBD912700165365 /* DL_hasMessageIcon@3x.png */; };
 		505CEF5E1FB9EC3A00E34F82 /* dow_feather@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 505CEF5D1FB9EC3A00E34F82 /* dow_feather@3x.png */; };
 		88309E2A1F74C5E5001ECA02 /* PDLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88309E291F74C5E5001ECA02 /* PDLoginController.xib */; };
 		88309E311F7504E5001ECA02 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 88309E301F7504E5001ECA02 /* NetTool.m */; };
@@ -129,6 +133,10 @@
 /* Begin PBXFileReference section */
 		01F638F9F062B8DEF9D1272F /* libPods-PDCS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDCS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D5742BEF5BCBC2B0095CEE8 /* libPods-PDCSUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDCSUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D8615B01FBD912600165365 /* DL_lingdangIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DL_lingdangIcon@2x.png"; sourceTree = "<group>"; };
+		0D8615B11FBD912600165365 /* DL_hasMessageIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DL_hasMessageIcon@2x.png"; sourceTree = "<group>"; };
+		0D8615B21FBD912700165365 /* DL_lingdangIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DL_lingdangIcon@3x.png"; sourceTree = "<group>"; };
+		0D8615B31FBD912700165365 /* DL_hasMessageIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DL_hasMessageIcon@3x.png"; sourceTree = "<group>"; };
 		37B8C2C6349778859103494A /* libPods-PDCSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDCSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		505CEF5D1FB9EC3A00E34F82 /* dow_feather@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dow_feather@3x.png"; sourceTree = "<group>"; };
 		7D33102B061BD1A9F4E7638F /* Pods-PDCS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDCS/Pods-PDCS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +198,6 @@
 		88A4E34C1FA4CBAF00B2DFA1 /* main_tab_ss_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_tab_ss_up.png; sourceTree = "<group>"; };
 		88A4E34D1FA4CBAF00B2DFA1 /* me_head_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_head_bg.png; sourceTree = "<group>"; };
 		88A4E34E1FA4CBAF00B2DFA1 /* menu_choose_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_choose_bg.png; sourceTree = "<group>"; };
-		88A4E34F1FA4CBAF00B2DFA1 /* Oval 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 3.png"; sourceTree = "<group>"; };
 		88A4E3501FA4CBAF00B2DFA1 /* tab_down_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_down_bg.png; sourceTree = "<group>"; };
 		88A4E3511FA4CBAF00B2DFA1 /* tab_up_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_up_bg.png; sourceTree = "<group>"; };
 		88A4E3521FA4CBAF00B2DFA1 /* title_back_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_back_bg.png; sourceTree = "<group>"; };
@@ -501,6 +508,10 @@
 		88A4E3421FA4CBAF00B2DFA1 /* 2@切图 */ = {
 			isa = PBXGroup;
 			children = (
+				0D8615B11FBD912600165365 /* DL_hasMessageIcon@2x.png */,
+				0D8615B31FBD912700165365 /* DL_hasMessageIcon@3x.png */,
+				0D8615B01FBD912600165365 /* DL_lingdangIcon@2x.png */,
+				0D8615B21FBD912700165365 /* DL_lingdangIcon@3x.png */,
 				88A4E3431FA4CBAF00B2DFA1 /* +.png */,
 				88A4E3441FA4CBAF00B2DFA1 /* -.png */,
 				88A4E3451FA4CBAF00B2DFA1 /* item_choose_bg.png */,
@@ -513,7 +524,6 @@
 				88A4E34C1FA4CBAF00B2DFA1 /* main_tab_ss_up.png */,
 				88A4E34D1FA4CBAF00B2DFA1 /* me_head_bg.png */,
 				88A4E34E1FA4CBAF00B2DFA1 /* menu_choose_bg.png */,
-				88A4E34F1FA4CBAF00B2DFA1 /* Oval 3.png */,
 				88A4E3501FA4CBAF00B2DFA1 /* tab_down_bg.png */,
 				88A4E3511FA4CBAF00B2DFA1 /* tab_up_bg.png */,
 				88A4E3521FA4CBAF00B2DFA1 /* title_back_bg.png */,
@@ -1084,10 +1094,12 @@
 				88D0D6351F735D8E004C5ADD /* tab1_slct@2x.png in Resources */,
 				888ACFC91F73D660008960E5 /* 640-960.png in Resources */,
 				88DCE9C51F9B6D05000DA50C /* tab_down_bg@2x.png in Resources */,
+				0D8615B51FBD912700165365 /* DL_hasMessageIcon@2x.png in Resources */,
 				88D0D6211F735A14004C5ADD /* Tabbar.plist in Resources */,
 				88DCE9C81F9B6D0D000DA50C /* tab_down_bg@3x.png in Resources */,
 				88A4E3681FA568E200B2DFA1 /* dow_feather@2x.png in Resources */,
 				88D0D60A1F734060004C5ADD /* PDLoginViewController.xib in Resources */,
+				0D8615B61FBD912700165365 /* DL_lingdangIcon@3x.png in Resources */,
 				88D0D5BD1F715895004C5ADD /* Main.storyboard in Resources */,
 				88DCE9C61F9B6D08000DA50C /* tab_up_bg@2x.png in Resources */,
 				88C2CDD21F77686F009003B1 /* user_Krz@2x.jpg in Resources */,
@@ -1097,9 +1109,11 @@
 				888ACFCD1F73EC18008960E5 /* 640-1136.png in Resources */,
 				88D0D63A1F735D8E004C5ADD /* tab4_deft@2x.png in Resources */,
 				88D0D6361F735D8E004C5ADD /* tab2_deft@2x.png in Resources */,
+				0D8615B41FBD912700165365 /* DL_lingdangIcon@2x.png in Resources */,
 				88D0D6341F735D8E004C5ADD /* tab1_deft@2x.png in Resources */,
 				88C2CDC11F776198009003B1 /* MJRefresh.bundle in Resources */,
 				88D0D6371F735D8E004C5ADD /* tab2_slct@2x.png in Resources */,
+				0D8615B71FBD912700165365 /* DL_hasMessageIcon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1156,13 +1170,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDCSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		40CFE33AC70DC65798279148 /* [CP] Embed Pods Frameworks */ = {
@@ -1186,13 +1203,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDCS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D87458C7FAA06DB00308FCD /* [CP] Copy Pods Resources */ = {
@@ -1231,9 +1251,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PDCS/Pods-PDCS-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1246,13 +1270,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDCSUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
