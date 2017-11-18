@@ -21,7 +21,11 @@
 #define AdaW(x)                     (x * kScreenWidthRatio)
 #define AdaH(x)                     (x * kScreenHeightRatio)
 
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define ISIOS7ORLATER (IOS_VERSION >= 7.0)
 
+
+#define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 
 
 

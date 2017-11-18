@@ -11,4 +11,6 @@ typedef void (^returnObjct)(id obj);
 @interface ComputRequestModel : NSObject
 
 +(void)computRequest:(NSString *)url Parameter:(NSDictionary *)Parame Obj:(returnObjct)obj;
+
+
 @end

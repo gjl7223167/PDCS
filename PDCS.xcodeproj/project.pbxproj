@@ -111,6 +111,9 @@
 		99580C7483DFF1ACC6F99D6B /* libPods-PDCS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F638F9F062B8DEF9D1272F /* libPods-PDCS.a */; };
 		E630E7A4AA18BB467710EF45 /* libPods-PDCSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5742BEF5BCBC2B0095CEE8 /* libPods-PDCSUITests.a */; };
 		F6B326B4DE21C01BE554AA51 /* libPods-PDCSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B8C2C6349778859103494A /* libPods-PDCSTests.a */; };
+		FD9A22DB1FBFE1010058EA69 /* HBBTMSingleTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4E2E51FA4734C00B2DFA1 /* HBBTMSingleTView.m */; };
+		FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */; };
+		FD9A22E21FBFEA080058EA69 /* ComputDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +353,10 @@
 		BA9686BC3C67894B1B8B2DB9 /* Pods-PDCS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCS/Pods-PDCS.release.xcconfig"; sourceTree = "<group>"; };
 		DAEAC6D762FF4EE678939D27 /* Pods-PDCSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAF8BCA7524A9FA8A68CB7A7 /* Pods-PDCSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBSglLabCell.m; sourceTree = "<group>"; };
+		FD9A22DE1FBFE1B60058EA69 /* HBSglLabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBSglLabCell.h; sourceTree = "<group>"; };
+		FD9A22E01FBFEA080058EA69 /* ComputDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputDataModel.h; sourceTree = "<group>"; };
+		FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +500,8 @@
 			children = (
 				88A4E2E41FA4734C00B2DFA1 /* HBBTMSingleTView.h */,
 				88A4E2E51FA4734C00B2DFA1 /* HBBTMSingleTView.m */,
+				FD9A22DE1FBFE1B60058EA69 /* HBSglLabCell.h */,
+				FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */,
 				88A4E3371FA4C12400B2DFA1 /* ZJLCtrlItem.h */,
 				88A4E3381FA4C12400B2DFA1 /* ZJLCtrlItem.m */,
 				88A4E3361FA4C12400B2DFA1 /* ZJLPageControl.h */,
@@ -960,6 +969,8 @@
 			children = (
 				88DCE9E21F9F5D6B000DA50C /* ComputRequestModel.h */,
 				88DCE9E31F9F5D6B000DA50C /* ComputRequestModel.m */,
+				FD9A22E01FBFEA080058EA69 /* ComputDataModel.h */,
+				FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1316,9 +1327,11 @@
 				88C2CDB51F776198009003B1 /* MJRefreshComponent.m in Sources */,
 				88D0D6421F736807004C5ADD /* PDLoginController.m in Sources */,
 				88D0D5B71F715895004C5ADD /* AppDelegate.m in Sources */,
+				FD9A22DB1FBFE1010058EA69 /* HBBTMSingleTView.m in Sources */,
 				88C2CDC51F776198009003B1 /* UIView+MJExtension.m in Sources */,
 				88309E3E1F7565D9001ECA02 /* LoginModel.m in Sources */,
 				88309E3A1F752297001ECA02 /* NetSucc.m in Sources */,
+				FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */,
 				88309E341F75110D001ECA02 /* NetError.m in Sources */,
 				88C2CDB31F776198009003B1 /* MJRefreshAutoFooter.m in Sources */,
 				88D0D6201F735A14004C5ADD /* MyTabbar.m in Sources */,
@@ -1330,6 +1343,7 @@
 				88C2CDCC1F77639B009003B1 /* HBSingleImgCtrl.m in Sources */,
 				88C2CDC91F7762DC009003B1 /* PDUserHDView.m in Sources */,
 				88C2CDC01F776198009003B1 /* MJRefreshStateHeader.m in Sources */,
+				FD9A22E21FBFEA080058EA69 /* ComputDataModel.m in Sources */,
 				88D0D5F11F72A7BA004C5ADD /* PDUtils.m in Sources */,
 				88D0D5ED1F715C62004C5ADD /* PDViewController.m in Sources */,
 				88C2CDB91F776198009003B1 /* MJRefreshAutoNormalFooter.m in Sources */,

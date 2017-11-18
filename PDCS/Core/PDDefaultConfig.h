@@ -15,6 +15,8 @@
 #define     KEdgeGap        15.0f
 #define    KSecHeight    10.f
 #define    kLineHeight 0.6
+#define     KDfltBdWidth    0.6f
+#define kDefaultLineColor UIColorFromRGB(0xf3efef)
 
 typedef enum CuttentType{
     selectGPZHtype = 0,//挂牌利率 某支行

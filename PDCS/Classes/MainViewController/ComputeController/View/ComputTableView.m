@@ -31,10 +31,20 @@
     return self;
 }
 
+
+-(void)setInfoDate:(NSMutableDictionary *)dcit{
+    [self.infoData setDictionary:dcit];
+    
+    [tableV reloadData];
+}
+
 -(void)initView:(id)info Frame:(CGRect)frame {
-    if (headerAry == nil) {
-        headerAry = [[NSArray alloc] initWithObjects:@"业务信息",@"产品信息",@"机构信息",nil];
+    if (self.infoData == nil) {
+        self.infoData = [[NSMutableDictionary alloc] init];
+    }else{
+        [self.infoData removeAllObjects];
     }
+    [self.infoData setDictionary:info];
     
     self.backgroundColor = [kViewBgColor colorWithAlphaComponent:0.4];
     if (tableV == nil) {
@@ -43,6 +53,7 @@
         tableV.dataSource = self;
         [self addSubview:tableV];
     }
+    
 }
 
 
@@ -59,13 +70,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 3;
+    return self.infoData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-
-    return 3;
+    if (section == 0) {
+        NSDictionary * dic = [self.infoData objectForKey:@"ywxx"];
+        NSArray * ary = dic[@"value"];
+        return ary.count;
+    }else if (section == 1){
+         NSDictionary * dic = [self.infoData objectForKey:@"cpxx"];
+        NSArray * ary = dic[@"value"];
+        return ary.count;
+    }else if (section == 2){
+         NSDictionary * dic = [self.infoData objectForKey:@"jgxx"];
+        NSArray * ary = dic[@"value"];
+        return ary.count;
+    }
+    return 0;
 }
 
 -(CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -73,8 +96,18 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UILabel * headerLabel = [PDUtils createNormalLabel:headerAry[section] with:UIColorFromRGB(0x000000) frame:CGRectMake(23,0,100,headerHeight) with:12.0f];
+    NSString * titleStirng;
+    if (section == 0) {
+        NSDictionary * dic = [self.infoData objectForKey:@"ywxx"];
+        titleStirng = dic[@"name"];
+    }else if (section == 1){
+        NSDictionary * dic = [self.infoData objectForKey:@"cpxx"];
+        titleStirng = dic[@"name"];
+    }else if (section == 2){
+        NSDictionary * dic = [self.infoData objectForKey:@"jgxx"];
+        titleStirng = dic[@"name"];
+    }
+    UILabel * headerLabel = [PDUtils createNormalLabel:titleStirng with:UIColorFromRGB(0x000000) frame:CGRectMake(23,0,100,headerHeight) with:12.0f];
     headerLabel.backgroundColor = [UIColor clearColor];
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, headerHeight)];
     view.backgroundColor = kLineColor;
@@ -92,7 +125,10 @@
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
+    
     static NSString * indentifier = @"indentifier";
     
     ComputTableCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
@@ -100,12 +136,39 @@
         cell = [[ComputTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
     }
     
+    NSString * name;
+    NSString * dicName;
+    if (section == 0) {
+        NSDictionary * dict = _infoData[@"ywxx"];
+        NSArray * ary = dict[@"value"];
+        NSDictionary * dDry = ary[row];
+        name = dDry[@"name"];
+        dicName = dDry[@"value"];
+    }else if (section == 1){
+        NSDictionary * dict = _infoData[@"cpxx"];
+        NSArray * ary = dict[@"value"];
+        NSDictionary * dDry = ary[row];
+        name = dDry[@"name"];
+        dicName = dDry[@"value"];
+    }else if (section == 2){
+        NSDictionary * dict = _infoData[@"jgxx"];
+        NSArray * ary = dict[@"value"];
+        NSDictionary * dDry = ary[row];
+        name = dDry[@"name"];
+        dicName = dDry[@"value"];
+    }
+    
+    [cell setTitle:name AndDTitle:dicName];
+    
     return cell;
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (self.cellDidClickBlock) {
+        self.cellDidClickBlock(indexPath);
+    }
     NSLog(@"点击");
     
 }

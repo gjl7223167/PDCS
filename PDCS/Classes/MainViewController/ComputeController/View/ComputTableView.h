@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^CellDidClickBlock)(NSIndexPath * index);
 @interface ComputTableView : UIView
+@property(nonatomic,copy)CellDidClickBlock cellDidClickBlock;
+
+
 - (instancetype)initWithFrame:(CGRect)frame InfoData:(id)info;
+
+-(void)setInfoDate:(NSMutableDictionary *)dcit;
 
 @end

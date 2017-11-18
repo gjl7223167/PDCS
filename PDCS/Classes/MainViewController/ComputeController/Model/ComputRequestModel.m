@@ -22,4 +22,7 @@
 +(void)showProgressHUD:(NSString *)error{
     [SVProgressHUD showImage:nil status:error ];
 }
+
+
+
 @end

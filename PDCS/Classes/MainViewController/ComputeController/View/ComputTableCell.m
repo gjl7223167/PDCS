@@ -36,6 +36,7 @@
     [self.contentView addSubview:lTLabel];
     
     lDLabel = [PDUtils createLabel:@"请选择" with:UIColorFromRGB(0x9C9C9C) in:CGPointMake(20,lTLabel.bottom + 2) with:14];
+    lDLabel.width = self.contentView.width;
     [self.contentView addSubview:lDLabel];
     
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 12)];
@@ -49,7 +50,7 @@
 
 -(void)setTitle:(NSString *)title AndDTitle:(NSString *)dTitle{
     lTLabel.text = title;
-    lDLabel.text = title;
+    lDLabel.text = [dTitle length] > 1?dTitle:@"请选择";
 }
 
 

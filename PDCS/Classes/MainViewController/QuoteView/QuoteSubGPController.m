@@ -240,6 +240,7 @@
     NSURL * urlStr= [NSURL URLWithString:RDefaultUrl];
     NSURLRequest * request = [NSURLRequest requestWithURL:urlStr];
     [_webView loadRequest:request];
+    
 }
 
 

@@ -14,6 +14,9 @@
 
 #define kViewBgColor    UIColorFromRGB(0xf5f5f5)     //默认页面背景颜色
 
+#define     KDfltBdColor    UIColorFromRGB(0xf1f1f1).CGColor
+#define     KTSubmTClr       UIColorFromRGB(0x909090)
+
 
 #define KNaviTitleClr   UIColorFromRGB(0x202020)     //导航栏有文字颜色
 #define kBtmBarBgColor  UIColorFromRGB(0xffffff)     //底部导航背景颜色

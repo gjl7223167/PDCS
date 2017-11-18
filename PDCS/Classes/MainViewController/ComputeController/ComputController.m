@@ -80,14 +80,15 @@
     ComputSubController *Vc = _crtAray[0];
     [self.view addSubview:Vc.view];
     _currentVC = Vc;
+    
 }
-
 
 
 -(void)rightBtnClicked:(id)sender{
 
 
 }
+
 /*
  nav分段显示方法
  */
