@@ -8,14 +8,15 @@
 
 #import "QuoteSubGPController.h"
 #import "QuoteHeader.h"
+#import "DLQuoteWebView.h"
 
-@interface QuoteSubGPController ()<WKUIDelegate,WKNavigationDelegate,UIScrollViewDelegate>
+@interface QuoteSubGPController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 {
     QuoteDataModel * dataTypeModel;
     NSInteger cSelectIndex;
     currentType ctype;
 }
-@property(nonatomic,strong)WKWebView * webView;
+@property(nonatomic,strong)DLQuoteWebView * webView;
 
 @property(nonatomic,strong)NSMutableArray * titlesAry;//资金 同业
 @property(nonatomic,strong)NSMutableArray * titlesZHAry;//某支行
@@ -29,6 +30,12 @@
 
 @property(nonatomic,strong)NSArray * segmentedTitles;
 
+@property (nonatomic,copy) NSString * jigouString;
+@property (nonatomic,copy) NSString * zichanString;
+@property (nonatomic,copy) NSString * tongyeString;
+@property (nonatomic,copy) NSString * qianString;
+@property (nonatomic,copy) NSString * timeString;
+
 @end
 
 @implementation QuoteSubGPController
@@ -41,7 +48,6 @@
     
     [self initData];
     [self initView];
-    [self requestUrl];
     [self requestWithMethod];
 
 }
@@ -52,7 +58,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.webView.scrollView.delegate = nil;
 }
 
 -(void)initData{
@@ -191,13 +196,15 @@
 -(void)showTableListView:(currentType )type AndData:(id)info{
  
     if (self.tableListView == nil) {
-        WEAKSELF
+        WEAKSELF;
         self.tableListView = [[TwoTableView alloc] initWithFrame:CGRectMake(0, SegmentedH, SCREEN_WIDTH, SCREEN_HEIGHT) InfoData:info CuurentType:type];
 
         self.tableListView.endBlack = ^(NSString *number, NSString *dicStr, NSInteger selectIndex) {
             if (ctype == selectGPZCtype) {
                 cSelectIndex = selectIndex;
             }
+            
+            [weakSelf.webView requestJSString:[weakSelf appJSString:type value:number]];
             
             NSLog(@"%@  -- %@  ---- %ld",number,dicStr,selectIndex);
         };
@@ -213,6 +220,31 @@
     }
 }
 
+-(NSString *)appJSString:(currentType)type value:(NSString*)value{
+    if (type == selectGPZHtype){
+        self.jigouString = value;
+        self.zichanString = @"";
+        self.tongyeString = @"";
+        self.qianString = @"";
+        self.timeString = [self todayString];
+    }else if (type == selectGPZCtype){
+        self.zichanString = value;
+        self.tongyeString = @"";
+        self.qianString = @"";
+        self.timeString = [self todayString];
+    }else if (type == selectGPTYtype){
+        self.tongyeString = value;
+        self.qianString = @"";
+        self.timeString = [self todayString];
+    }else if (type == selectGPRMBtype){
+        self.qianString = value;
+        self.timeString = [self todayString];
+    }
+
+    NSString * string = [NSString stringWithFormat:@"APPPriceCurveList('%@', '%@', '%@','%@','%@')",self.jigouString,self.timeString,self.qianString,self.zichanString,self.tongyeString];
+    return string;
+}
+
 
 -(void)tableListCancael{
     if ( self.tableListView ) {
@@ -223,15 +255,25 @@
 
 #pragma  mark -**  WKWebview **-
 -(void)initView{
-    
     CGSize vSize = self.contentView.size;
     if (_webView == nil) {
-        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
-        _webView.UIDelegate = self;
-        _webView.navigationDelegate = self;
-        _webView.scrollView.delegate = self;
+        
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.userContentController = [WKUserContentController new];
+        [configuration.userContentController addScriptMessageHandler:self name:@"aPPIOS.sponsorSelectTime"];
+        
+        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
         [self.contentView addSubview:_webView];
+        
+        NSString * today  = [self todayString];
+        self.jigouString = @"0042";
+        self.timeString = today;
+        self.qianString = @"CNY";
+        self.zichanString = @"2";
+        self.tongyeString = @"01001";
+        [_webView requestURL:RDefaultUrl JSString:@"APPPriceCurveList('0042', '2017-11-18', 'CNY','2','01001')"];
     }
+<<<<<<< HEAD
     
 }
 
@@ -273,46 +315,20 @@
 /* 5.页面加载完成之后调用 */
 -(void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     NSLog(@"页面加载完成之后调用");
+=======
+>>>>>>> 4d9561f408d0de5d2716e5186d2d73bef3273a37
 }
 
-/* error - 页面加载失败时调用 */
--(void)webView:(WKWebView *)webView didFailLoadWithError:(nonnull NSError *)error{
-    NSLog(@"失败");
-}
-
-/* 其他 - 处理服务器重定向Redirect */
--(void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
-    
-}
-
-/*WKUIDelegate 代理方法*/
-
-/* 输入框，页面中有调用JS的 prompt 方法就会调用该方法 */ - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *result))completionHandler{
-    
-}
-
-/* 确认框，页面中有调用JS的 confirm 方法就会调用该方法 */
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler{
-    
-}
-
-/* 警告框，页面中有调用JS的 alert 方法就会调用该方法 */
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    
+-(NSString*)todayString{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
+    return dateTime;
 }
 
 -(void)dealloc{
-    self.webView.navigationDelegate = nil;
     [self.webView removeFromSuperview];
     self.webView = nil;
-    self.webView.scrollView.delegate = nil;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

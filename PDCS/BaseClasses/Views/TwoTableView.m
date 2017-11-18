@@ -493,6 +493,7 @@
             break;
         case selectGPRMBtype:
         {
+            [dict setValue:info[@"CURR_ISO"] forKey:@"number"];
             [dict setValue:info[@"CURR_ZWM"] forKey:@"name"];
         }
             break;
@@ -511,6 +512,7 @@
             break;
         case selectSCRMBtype:
         {
+            
         }
             break;
             //FTP利率//

@@ -11,7 +11,7 @@
 #import "MyController.h"
 #import "QuoteController.h"
 #import "ComputController.h"
-
+#import "DLJingYingViewController.h"
 #import "PDNavigationController.h"
 
 #define BUTTON_HEIGHT 1
@@ -80,13 +80,17 @@ static MyTabbar *_sharedMyTabbar;
     ComputController *store=[[ComputController alloc]init];
     PDNavigationController *storNavi=[[PDNavigationController alloc]initWithRootViewController:store];
 //    store.title=@"产品试算";
+    
+    DLJingYingViewController *jy=[[DLJingYingViewController alloc]init];
+    PDNavigationController *jyn=[[PDNavigationController alloc]initWithRootViewController:jy];
+    
 
     MyController *person=[[MyController alloc]init];
 //    person.title=@"我的";
     PDNavigationController *naviPro=[[PDNavigationController alloc]initWithRootViewController:person];
     _tabbarController = [[UITabBarController alloc] init];
 
-    NSMutableArray *nsvc=[[NSMutableArray alloc]initWithObjects:navi1,storNavi,naviPro, nil];
+    NSMutableArray *nsvc=[[NSMutableArray alloc]initWithObjects:navi1,storNavi,jyn,naviPro, nil];
     _tabbarController.viewControllers = nsvc;
     [self createMyTabbar];
     
@@ -180,7 +184,7 @@ static MyTabbar *_sharedMyTabbar;
     {
         btn.selected = YES;
         _selectedBtn = btn;
-        label.textColor = UIColorFromRGB(0xff7200);
+        label.textColor = kBarBgColor;
         _selectedLabel = label;
         itemView.backgroundColor = UIColorFromRGB(0xfaf9f9);
         _selectedView = itemView;
@@ -220,7 +224,7 @@ static MyTabbar *_sharedMyTabbar;
     btn.selected = YES;
     _selectedBtn = btn;
     // label变色
-    ((UILabel *)[btn.superview.subviews objectAtIndex:1]).textColor = UIColorFromRGB(0xff7200);
+    ((UILabel *)[btn.superview.subviews objectAtIndex:1]).textColor = kBarBgColor;
     _selectedLabel = ((UILabel *)[btn.superview.subviews objectAtIndex:1]);
     _selectedView = (UIView*)btn.superview;
     _selectedView.backgroundColor = UIColorFromRGB(0xfaf9f9);

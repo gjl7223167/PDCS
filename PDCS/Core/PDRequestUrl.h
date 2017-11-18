@@ -15,7 +15,7 @@
 /*
  设备编号 客户端类型1:android,2:ios
  */
-#define DEV_TYPE @"1"
+#define DEV_TYPE @"2"
 
 /*
  服务器跟地址

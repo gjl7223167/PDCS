@@ -23,6 +23,14 @@
 			<string>产品试算</string>
 		</dict>
 		<dict>
+			<key>title</key>
+			<string>经营状况</string>
+			<key>selectImageName</key>
+			<string>tab3_slct.png</string>
+			<key>imageName</key>
+			<string>tab3_deft.png</string>
+		</dict>
+		<dict>
 			<key>imageName</key>
 			<string>tab4_deft.png</string>
 			<key>selectImageName</key>
