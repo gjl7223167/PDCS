@@ -9,8 +9,8 @@
 #import "PDLoginController.h"
 #import "LCMD5Tool.h"
 #import "MyTabbar.h"
-
-
+#import "DLLoginCodeView.h"
+#import "TLChooseDateView.h"
 #import "AppDelegate.h"
 
 @interface PDLoginController ()<UITextFieldDelegate>
@@ -27,12 +27,17 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *logBtn;
 
+@property (weak, nonatomic) IBOutlet DLLoginCodeView *codeView;
 
 
 
 @end
 
 @implementation PDLoginController
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,7 +53,10 @@
     _logBtn.layer.masksToBounds = YES;
     _logBtn.layer.cornerRadius = 5.0;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -65,16 +73,8 @@
         iFrame.size.height += 20;
     }
     
-    NSString* imgName = @"750-1334.png";
-    if (IS_IPHONE_4_OR_LESS) {
-        imgName = @"640-960";
-    }else if(IS_IPHONE_5){
-        imgName = @"640-1136";
-    }else if (IS_IPHONE_6P){
-        imgName = @"1242-2208";
-    }
     
-    UIImage* image = [UIImage imageNamed:imgName];
+    UIImage* image = [UIImage imageNamed:@"DLLogin_backIcon"];
     _backImage.image = image;
     _backImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.view sendSubviewToBack:self.contentView];
@@ -94,6 +94,17 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+//    if (textField == _nameTextField) {
+//        nameStr = textField.text;
+//    }else if (textField == _passwordTextField){
+//        passWordStr = textField.text;
+//    }else if (textField == _validationTextField){
+//        validationStr = textField.text;
+//    }
+}
+
+-(void)textFieldDidChange:(NSNotification*)nofi{
+    UITextField * textField = nofi.object;
     if (textField == _nameTextField) {
         nameStr = textField.text;
     }else if (textField == _passwordTextField){
@@ -103,18 +114,51 @@
     }
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)changeCode:(id)sender {
+//    [_codeView changeCode];
+    [self show];
+}
+
+-(void)show{
+    NSString *dateStrs = @"2014-01-01-18:10:00";
+    NSDateFormatter *formatterTime = [NSDateFormatter new];
+    formatterTime.dateFormat = @"yyyy-MM-dd-HH:mm:ss";
+    formatterTime.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSDate *dateTime = [formatterTime dateFromString:dateStrs];
+    
+    NSString *dateStrs1 = @"2018-01-01-18:10:00";
+    NSDateFormatter *formatterTime1 = [NSDateFormatter new];
+    formatterTime1.dateFormat = @"yyyy-MM-dd-HH:mm:ss";
+    formatterTime1.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSDate *dateTime1 = [formatterTime1 dateFromString:dateStrs1];
+    
+    TLChooseDateView * dateView = [[TLChooseDateView alloc] initWithRootView:self.navigationController.view start:dateTime end:dateTime1];
+    [dateView showView];
 }
 
 - (IBAction)clickLogBtn:(id)sender {
     
 
-   NSString * pormpt = [LoginModel logWithInfoName:nameStr PassWord:passWordStr Validation:validationStr];
+   NSString * pormpt = [LoginModel logWithInfoName:nameStr PassWord:passWordStr];
     if (pormpt) {
          [PXAlertView showAlertWithTitle:pormpt];
     }else{
+        
+        if ([NSString isStringEmpty:validationStr]){
+            [PXAlertView showAlertWithTitle:@"请输入验证码"];
+            return;
+        }else if (![validationStr compare:_codeView.changeString
+                  options:NSCaseInsensitiveSearch |NSNumericSearch] == NSOrderedSame){
+            [PXAlertView showAlertWithTitle:@"验证码输入错误"];
+            return;
+        }
+        
         //        [dic setValue:nameStr forKey:@"DEVICE_ID"];
         //        [dic setValue:passWordStr forKey:@"USER_PSW"];
         

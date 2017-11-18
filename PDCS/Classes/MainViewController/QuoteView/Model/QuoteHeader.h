@@ -17,6 +17,6 @@
 #import "QuoteDataModel.h"
 
 #define baidu @"https://www.baidu.com"
-#define text @"http://www.lanshaoqi.cn/index.html"
+#define text @"http://lanshaoqi.cn/index.html"
 #define RDefaultUrl text
 #endif /* QuoteHeader_h */
