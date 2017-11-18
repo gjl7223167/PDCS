@@ -273,50 +273,7 @@
         self.tongyeString = @"01001";
         [_webView requestURL:RDefaultUrl JSString:@"APPPriceCurveList('0042', '2017-11-18', 'CNY','2','01001')"];
     }
-<<<<<<< HEAD
     
-}
-
--(void)requestUrl{
-    
-    NSURL * urlStr= [NSURL URLWithString:RDefaultUrl];
-    NSURLRequest * request = [NSURLRequest requestWithURL:urlStr];
-    [_webView loadRequest:request];
-    
-}
-
-
-
-
-/*WKNavigationDelegate 代理方法*/
-
-/* 1.在发送请求之前，决定是否跳转  */
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-    decisionHandler(WKNavigationActionPolicyAllow);
-}
-
-/* 2.页面开始加载 */
--(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-    NSLog(@"开始加载");
-}
-
-/* 3.在收到服务器的响应头，根据response相关信息，决定是否跳转。 */
--(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(nonnull WKNavigationResponse *)navigationResponse decisionHandler:(nonnull void (^)(WKNavigationResponsePolicy))decisionHandler{
-    
-    
-    decisionHandler(WKNavigationResponsePolicyAllow);
-    NSLog(@"在收到服务器的响应头，根据response相关信息，决定是否跳转");
-}
-/* 4.开始获取到网页内容时返回，需要注入JS，在这里添加 */
--(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation{
-    NSLog(@"开始获取到网页内容时返回，需要注入JS，在这里添加");
-}
-
-/* 5.页面加载完成之后调用 */
--(void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
-    NSLog(@"页面加载完成之后调用");
-=======
->>>>>>> 4d9561f408d0de5d2716e5186d2d73bef3273a37
 }
 
 -(NSString*)todayString{
