@@ -52,6 +52,9 @@
         tableV.delegate = self;
         tableV.dataSource = self;
         [self addSubview:tableV];
+        [tableV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.bottom.equalTo(self);
+        }];
     }
     
 }

@@ -43,7 +43,7 @@
     self.navigationController.toolbar.hidden = YES;
     
     CGSize size = self.view.frame.size;
-    CGRect cFrame = CGRectMake(0, 0, SCREEN_WIDTH, size.height - kNaviBarH);
+    CGRect cFrame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
     if ([PDUtils getIOSVersion] < 7.0) {
         cFrame.origin.y = 0;
     }
@@ -51,7 +51,9 @@
     self.contentView = [[UIView alloc]initWithFrame:cFrame];
     [self.contentView setBackgroundColor:kViewBgColor];
     [self.view addSubview:self.contentView];
-
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self.view);
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated

@@ -38,14 +38,15 @@
 
 @implementation ComputSubController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
      [self initData];
      [self initView];
-    
-
+   CGRect bouns = [UIScreen mainScreen].bounds;
+    self.view.frame = CGRectMake(0, 0,bouns.size.width , bouns.size.height);
 }
 
 
@@ -119,20 +120,26 @@
 
 -(void)showTableListAndData:(NSInteger )dTag{
     
+    
+    
     [requestDic setObject:_keyArys[dTag] forKey:@"PRD_CAL_TYPE"];
     
     if (self.tableView == nil) {
      
         WEAKSELF
-        self.tableView = [[ComputTableView alloc] initWithFrame:CGRectMake(0, kPageCtrlH, SCREEN_WIDTH, self.contentView.height - kPageCtrlH - 49) InfoData:self.infoDic];
+        self.tableView = [[ComputTableView alloc] initWithFrame:CGRectMake(0, kPageCtrlH, SCREEN_WIDTH, self.contentView.height) InfoData:self.infoDic];
         
         self.tableView.cellDidClickBlock = ^(NSIndexPath * index) {
             NSLog(@"______%ld",(long)index);
             [weakSelf dataWithInfoDict:index];
         };
-        
-        [self.contentView addSubview:self.tableView];
-        
+     
+        [self.view addSubview:self.tableView];
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.contentView).offset(kPageCtrlH);
+            make.top.equalTo(self.view);
+            make.left.right.bottom.equalTo(self.view);
+        }];
     }else{
         
 //        [self.tableListView updata:info AndType:type];
@@ -149,11 +156,16 @@
     WEAKSELF
     [ComputDataModel requestComputModel:index ParamDic:requestDic blok:^(NSDictionary *dict) {
         [weakSelf singleTableView:dict];
+        [weakSelf nollWithData:index];
     }];
+    
 }
 
 
 -(void)singleTableView:(NSDictionary *)dict{
+    
+   
+    
     NSArray * names = dict[@"name"];
     CGRect btmFrame = SCREEN_BOUNDS;
     if (!ISIOS7ORLATER) {
@@ -277,6 +289,7 @@
         }
     }else if (section == 2){
         switch (row) {
+                
             case 0:
             {
                 [requestDic setValue:dictY[@"ORG_ID"] forKey:@"scfh"];//所属分行
@@ -317,9 +330,68 @@
     }
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+/*
+ "PRD_CAL_TYPE" = 1; 当前样式
+ "TERM_QXBM" = 101; 合同限制
+ "TERM_TS" = 1; 合同期限
+ bz = CNY; 币种
+ cpmc = 10111010101; 产品名称
+ khlb = 01001; 客户类别
+ scfh = 10001; 所属分行
+ sczh = 0042; 所属支行
+ ywlx = 1011; 业务类型
+ ywmk = 10;  业务模块
+ ywxt = 1011101; 业务线条
+ */
+
+-(void)nollWithData:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger row   = indexPath.row;
+    
+    if (section == 0) {
+        if (row == 1) {
+            NSDictionary * dict = self.infoDic[@"ywxx"];
+            NSArray * ary = dict[@"value"];
+            NSMutableDictionary * mDict = ary[2];
+            [mDict setObject:@"" forKey:@"value"];
+           
+        }
+        
+        NSDictionary * dict = self.infoDic[@"jgxx"];
+        NSArray * ary = dict[@"value"];
+        for (NSMutableDictionary * mDic in ary) {
+            [mDic setObject:@"" forKey:@"value"];
+        }
+        
+        NSDictionary * cdict = self.infoDic[@"cpxx"];
+        NSArray * cary = cdict[@"value"];
+        for (NSMutableDictionary * mDic in cary) {
+            [mDic setObject:@"" forKey:@"value"];
+        }
+
+        [self.tableView setInfoDate:self.infoDic];
+    }else if (section == 1){
+        NSDictionary * dict = self.infoDic[@"cpxx"];
+        NSArray * cary = dict[@"value"];
+        
+        for (NSMutableDictionary * mDic in cary) {
+            [mDic setObject:@"" forKey:@"value"];
+        }
+    }else if (section == 2){
+        
+    }
+   
+    
+    
+     [self.tableView setInfoDate:self.infoDic];
 }
 
 

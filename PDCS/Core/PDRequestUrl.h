@@ -226,6 +226,7 @@
 
 
 /*
+ ****产品试算-所属机构信息查询**
  USER_ID    用户编号    String    20    Y
  ROLE_ID    用户角色编号    String    20    Y
  PRD_CPDM    产品代码    String    24    Y
@@ -250,6 +251,13 @@
  */
 #define PDCR_CPZJYWType_Url @"mssia/other/queryBusType"
 
+
+/*
+ **  中间业务-信息数据查询**
+ USER_ID                用户编号
+ ROLE_ID                用户角色编号
+ */
+#define PDCR_CPZJYWXXSJType_Url @"mssia/other/queryBusInfo"
 
 
 

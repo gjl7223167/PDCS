@@ -230,7 +230,7 @@
                 [dict setObject:model.ORG_ID forKey:@"ORG_ID"];
                 [dict setValue:info[@"PRD_CAL_TYPE"] forKey:@"PRD_CAL_TYPE"];
                 [dict setValue:info[@"cpmc"] forKey:@"PRD_CPDM"];
-                [dict setObject:info[@"bz"] forKey:@"PRD_BZ"];
+                [dict setValue:info[@"bz"] forKey:@"PRD_BZ"];
                 [dict setValue:info[@"TERM_QXBM"] forKey:@"TERM_QXBM"];//限期编码
                 [dict setValue:info[@"TERM_TS"] forKey:@"TERM_TS"];//限期天数
                 [dict setObject:@"3" forKey:@"ORG_LVL"];
@@ -279,15 +279,15 @@
             case 2:
             {
                 [dict setObject:model.ORG_ID forKey:@"ORG_ID"];
-                [dict setObject:info[@"PRD_CAL_TYPE"] forKey:@"PRD_CAL_TYPE"];
-                [dict setObject:info[@"cpmc"] forKey:@"PRD_CPDM"];
-                [dict setObject:info[@"bz"] forKey:@"PRD_BZ"];
-                [dict setObject:info[@"TERM_QXBM"] forKey:@"TERM_QXBM"];//限期编码
-                [dict setObject:info[@"TERM_TS"] forKey:@"TERM_TS"];//限期天数
+                [dict setValue:info[@"PRD_CAL_TYPE"] forKey:@"PRD_CAL_TYPE"];
+                [dict setValue:info[@"cpmc"] forKey:@"PRD_CPDM"];
+                [dict setValue:info[@"bz"] forKey:@"PRD_BZ"];
+                [dict setValue:info[@"TERM_QXBM"] forKey:@"TERM_QXBM"];//限期编码
+                [dict setValue:info[@"TERM_TS"] forKey:@"TERM_TS"];//限期天数
                 [dict setObject:@"7" forKey:@"ORG_LVL"];
-                [dict setObject:info[@"khlb"] forKey:@"CUST_LVL"];
+                [dict setValue:info[@"khlb"] forKey:@"CUST_LVL"];
                 
-                [dict setObject:info[@"sczh"] forKey:@"ORG_PAR_ID"];
+                [dict setValue:info[@"sczh"] forKey:@"ORG_PAR_ID"];
                 
                 [ComputDataModel YWMKRequest:PDCR_CPSSXXJGXXType_Url Parameter:dict Obj:^(id obj) {
                     NSArray * ary1 = obj[@"LIST"];
