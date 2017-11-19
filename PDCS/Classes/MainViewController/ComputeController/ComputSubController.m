@@ -136,8 +136,8 @@
      
         [self.view addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.contentView).offset(kPageCtrlH);
-            make.top.equalTo(self.view);
+            make.top.equalTo(self.contentView).offset(kPageCtrlH);
+//            make.top.equalTo(self.view);
             make.left.right.bottom.equalTo(self.view);
         }];
     }else{

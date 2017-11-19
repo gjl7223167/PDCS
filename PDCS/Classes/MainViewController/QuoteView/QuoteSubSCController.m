@@ -193,13 +193,12 @@
 
 -(NSString *)appJSString:(currentType)type value:(NSString*)value{
     if (type == selectSCRENBCtype){
-        self.lilvString = value;
-        self.daleiString = @"";
+        self.daleiString = value;
+        self.lilvString = @"";
         self.qianString = @"";
         self.timeString = [NSString todayString];
     }else if (type == selectSCQBFLtype){
-        self.daleiString = value;
-        
+        self.lilvString = value;
         self.qianString = @"";
         self.timeString = [NSString todayString];
     }else if (type == selectSCRMBtype){
@@ -228,8 +227,8 @@
         [self.contentView addSubview:_webView];
          NSString * today  = [NSString todayString];
         self.qianString = @"CNY";
-        self.timeString = @"2016-07-14";
-        self.lilvString = @"16001";
+        self.timeString = today;
+        self.lilvString = @"";
         self.daleiString = @"01";
         NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@','%@')",self.daleiString,self.qianString,self.lilvString,self.timeString];
         [_webView requestURL:@"http://lanshaoqi.cn/index_shichang.html" JSString:jsString];
