@@ -127,6 +127,7 @@
             break;
         case selectSCRMBtype:
         {
+            [_aryOnr setArray:info];
         }
             break;
             //FTP利率//
@@ -339,6 +340,7 @@
             break;
         case selectSCRMBtype:
         {
+             tempStr = dict[@"CURR_ZWM"];
         }
             break;
             //FTP利率//
@@ -512,7 +514,8 @@
             break;
         case selectSCRMBtype:
         {
-            
+            [dict setValue:info[@"CURR_ISO"] forKey:@"number"];
+            [dict setValue:info[@"CURR_ZWM"] forKey:@"name"];
         }
             break;
             //FTP利率//
