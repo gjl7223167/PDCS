@@ -78,7 +78,7 @@
             Vc = (QuoteSubFTPController*)_crtAray[i];
         }
         
-        Vc.view.frame = self.contentView.bounds;
+        Vc.view.frame = self.view.bounds;
         [self addChildViewController:Vc];
        
     }

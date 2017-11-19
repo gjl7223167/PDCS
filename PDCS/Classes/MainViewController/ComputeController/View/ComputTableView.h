@@ -16,5 +16,5 @@ typedef void (^CellDidClickBlock)(NSIndexPath * index);
 - (instancetype)initWithFrame:(CGRect)frame InfoData:(id)info;
 
 -(void)setInfoDate:(NSMutableDictionary *)dcit;
-
+-(void)tableViewFooterView:(UIView*)footView;
 @end

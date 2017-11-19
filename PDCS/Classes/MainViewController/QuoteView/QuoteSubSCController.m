@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.contentView addSubview:self.segmenterBut];
+    [self.view addSubview:self.segmenterBut];
     cSelectIndex = 0;
     RATE_LLLX = @"0";
     
@@ -73,9 +73,16 @@
 #pragma  mark -**  数据请求 **-
 -(void)requestWithMethod{
     
-    [_titlesAry   removeAllObjects];
-    [_titlesRMBAry removeAllObjects];
-    [_titlesRMBCAry removeAllObjects];
+    if (_titlesAry){
+        [_titlesAry   removeAllObjects];
+    }
+    
+    if (_titlesRMBAry)
+        [_titlesRMBAry removeAllObjects];
+    
+    if (_titlesRMBCAry)
+        [_titlesRMBCAry removeAllObjects];
+   
     
     UserModel * model = [[UserModelTool sharedUserModelTool] readMessageObject];
     WEAKSELF
@@ -169,7 +176,7 @@
 -(void)showTableListView:(currentType )type AndData:(id)info{
     
     if (self.tableListView == nil) {
-        WEAKSELF
+        WEAKSELF;
         self.tableListView = [[TwoTableView alloc] initWithFrame:CGRectMake(0, SegmentedH, SCREEN_WIDTH, SCREEN_HEIGHT) InfoData:info CuurentType:type];
         
         self.tableListView.endBlack = ^(NSString *number, NSString *dicStr, NSInteger selectIndex) {
@@ -178,7 +185,7 @@
                 RATE_LLLX = _titlesAry[cSelectIndex][@"RATE_LLLX"];
 //                [weakSelf requestRMB];
             }
-            [_webView requestJSString:[self appJSString:type value:number]];
+            [weakSelf.webView requestJSString:[weakSelf appJSString:type value:number]];
             NSLog(@"%@  -- %@  ---- %ld",number,dicStr,selectIndex);
         };
         
@@ -186,7 +193,7 @@
             [weakSelf tableListCancael];
         };
         
-        [self.contentView addSubview:_tableListView];
+        [self.view addSubview:_tableListView];
         
     }else{
         [self.tableListView updata:info AndType:type];
@@ -195,13 +202,12 @@
 
 -(NSString *)appJSString:(currentType)type value:(NSString*)value{
     if (type == selectSCRENBCtype){
-        self.lilvString = value;
-        self.daleiString = @"";
+        self.daleiString = value;
+        self.lilvString = @"";
         self.qianString = @"";
         self.timeString = [NSString todayString];
     }else if (type == selectSCQBFLtype){
-        self.daleiString = value;
-        
+        self.lilvString = value;
         self.qianString = @"";
         self.timeString = [NSString todayString];
     }else if (type == selectSCRMBtype){
@@ -224,14 +230,14 @@
 #pragma  mark -**  WKWebview **-
 -(void)initView{
     
-    CGSize vSize = self.contentView.size;
+    CGSize vSize = self.view.size;
     if (_webView == nil) {
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
-        [self.contentView addSubview:_webView];
+        [self.view addSubview:_webView];
          NSString * today  = [NSString todayString];
         self.qianString = @"CNY";
-        self.timeString = @"2016-07-14";
-        self.lilvString = @"16001";
+        self.timeString = today;
+        self.lilvString = @"";
         self.daleiString = @"01";
         NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@','%@')",self.daleiString,self.qianString,self.lilvString,self.timeString];
         [_webView requestURL:@"http://lanshaoqi.cn/index_shichang.html" JSString:jsString];

@@ -261,7 +261,6 @@
 		88A4E35A1FA4CBAF00B2DFA1 /* 双排按钮 渐变.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双排按钮 渐变.png"; sourceTree = "<group>"; };
 		88A4E35B1FA4CBAF00B2DFA1 /* 双排按钮（渐变）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双排按钮（渐变）.png"; sourceTree = "<group>"; };
 		88A4E35C1FA4CBAF00B2DFA1 /* 右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右箭头.png"; sourceTree = "<group>"; };
-		88A4E35D1FA4CBAF00B2DFA1 /* 按钮（渐变）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮（渐变）.png"; sourceTree = "<group>"; };
 		88A4E35E1FA4CBAF00B2DFA1 /* 日期 icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "日期 icon.png"; sourceTree = "<group>"; };
 		88A4E35F1FA4CBAF00B2DFA1 /* 结果异常.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "结果异常.png"; sourceTree = "<group>"; };
 		88A4E3601FA4CBAF00B2DFA1 /* 结果正常.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "结果正常.png"; sourceTree = "<group>"; };
@@ -643,7 +642,6 @@
 				88A4E35A1FA4CBAF00B2DFA1 /* 双排按钮 渐变.png */,
 				88A4E35B1FA4CBAF00B2DFA1 /* 双排按钮（渐变）.png */,
 				88A4E35C1FA4CBAF00B2DFA1 /* 右箭头.png */,
-				88A4E35D1FA4CBAF00B2DFA1 /* 按钮（渐变）.png */,
 				88A4E35E1FA4CBAF00B2DFA1 /* 日期 icon.png */,
 				88A4E35F1FA4CBAF00B2DFA1 /* 结果异常.png */,
 				88A4E3601FA4CBAF00B2DFA1 /* 结果正常.png */,
