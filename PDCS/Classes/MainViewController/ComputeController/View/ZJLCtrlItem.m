@@ -9,7 +9,7 @@
 #import "ZJLCtrlItem.h"
 
 #define KGapWidth  0
-#define kPCtrlSColor    UIColorFromRGB(0xff7200)     //pageControl选中颜色
+#define kPCtrlSColor    UIColorFromRGB(0x3D8BFF)     //pageControl选中颜色
 #define     KDfltBdWidth    0.6f
 #define     KDfltLColor     UIColorFromRGB(0xf1f1f1)
 #define kPCtrlDColor    UIColorFromRGB(0x666666)     //pageControl默认颜色

@@ -131,6 +131,9 @@
 		FD9A22DB1FBFE1010058EA69 /* HBBTMSingleTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4E2E51FA4734C00B2DFA1 /* HBBTMSingleTView.m */; };
 		FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */; };
 		FD9A22E21FBFEA080058EA69 /* ComputDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */; };
+		FD9A22E51FC127210058EA69 /* PDJYYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E41FC127210058EA69 /* PDJYYSController.m */; };
+		FD9A22E81FC1273D0058EA69 /* PDCWYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */; };
+		FD9A22EC1FC134610058EA69 /* PDJYZKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +401,12 @@
 		FD9A22DE1FBFE1B60058EA69 /* HBSglLabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBSglLabCell.h; sourceTree = "<group>"; };
 		FD9A22E01FBFEA080058EA69 /* ComputDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputDataModel.h; sourceTree = "<group>"; };
 		FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComputDataModel.m; sourceTree = "<group>"; };
+		FD9A22E31FC127210058EA69 /* PDJYYSController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDJYYSController.h; sourceTree = "<group>"; };
+		FD9A22E41FC127210058EA69 /* PDJYYSController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDJYYSController.m; sourceTree = "<group>"; };
+		FD9A22E61FC1273D0058EA69 /* PDCWYSController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCWYSController.h; sourceTree = "<group>"; };
+		FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCWYSController.m; sourceTree = "<group>"; };
+		FD9A22EA1FC134610058EA69 /* PDJYZKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDJYZKModel.h; sourceTree = "<group>"; };
+		FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDJYZKModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,8 +464,13 @@
 		0DEC32EE1FBFFDC2008862CA /* DLJingYingController */ = {
 			isa = PBXGroup;
 			children = (
+				FD9A22E91FC1343D0058EA69 /* Model */,
 				0DEC32EF1FBFFDE4008862CA /* DLJingYingViewController.h */,
 				0DEC32F01FBFFDE4008862CA /* DLJingYingViewController.m */,
+				FD9A22E31FC127210058EA69 /* PDJYYSController.h */,
+				FD9A22E41FC127210058EA69 /* PDJYYSController.m */,
+				FD9A22E61FC1273D0058EA69 /* PDCWYSController.h */,
+				FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */,
 			);
 			path = DLJingYingController;
 			sourceTree = "<group>";
@@ -1064,6 +1078,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FD9A22E91FC1343D0058EA69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD9A22EA1FC134610058EA69 /* PDJYZKModel.h */,
+				FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1418,6 +1441,7 @@
 				88C2CDBE1F776198009003B1 /* MJRefreshGifHeader.m in Sources */,
 				88309E371F751345001ECA02 /* NetApiClient.m in Sources */,
 				88C2CDC31F776198009003B1 /* UIScrollView+MJExtension.m in Sources */,
+				FD9A22E51FC127210058EA69 /* PDJYYSController.m in Sources */,
 				88C2CDD81F779E31009003B1 /* PDUserCell.m in Sources */,
 				88C2CDBB1F776198009003B1 /* MJRefreshBackGifFooter.m in Sources */,
 				88A4E33B1FA4C12400B2DFA1 /* ZJLPageControl.m in Sources */,
@@ -1448,6 +1472,7 @@
 				88C2CDCC1F77639B009003B1 /* HBSingleImgCtrl.m in Sources */,
 				88C2CDC91F7762DC009003B1 /* PDUserHDView.m in Sources */,
 				88C2CDC01F776198009003B1 /* MJRefreshStateHeader.m in Sources */,
+				FD9A22E81FC1273D0058EA69 /* PDCWYSController.m in Sources */,
 				FD9A22E21FBFEA080058EA69 /* ComputDataModel.m in Sources */,
 				88D0D5F11F72A7BA004C5ADD /* PDUtils.m in Sources */,
 				88D0D5ED1F715C62004C5ADD /* PDViewController.m in Sources */,
@@ -1458,6 +1483,7 @@
 				88DCE9D81F9DF32F000DA50C /* UserModel.m in Sources */,
 				88DCE9CE1F9D808D000DA50C /* ComputSubController.m in Sources */,
 				88D0D61B1F7358C4004C5ADD /* PDFSViewController.m in Sources */,
+				FD9A22EC1FC134610058EA69 /* PDJYZKModel.m in Sources */,
 				88C2CDBD1F776198009003B1 /* MJRefreshBackStateFooter.m in Sources */,
 				88C2CDC41F776198009003B1 /* UIScrollView+MJRefresh.m in Sources */,
 				88DCE9D41F9D8D0D000DA50C /* QuoteSubGPController.m in Sources */,
