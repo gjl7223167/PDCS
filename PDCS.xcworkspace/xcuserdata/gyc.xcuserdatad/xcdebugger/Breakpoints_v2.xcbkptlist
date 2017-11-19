@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PDCS/Classes/Login/PDLoginController.m"
-            timestampString = "532711025.093394"
+            timestampString = "532717091.718861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PDCS/Classes/MainViewController/QuoteView/DLQuoteWebView.m"
-            timestampString = "532711025.093941"
+            filePath = "PDCS/BaseClasses/Views/TwoTableView.m"
+            timestampString = "532717091.718967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-userContentController:didReceiveScriptMessage:"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+            landmarkName = "-blockDictionary:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PDCS/Classes/MainViewController/QuoteView/QuoteSubSCController.m"
+            timestampString = "532717091.719223"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "-initView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

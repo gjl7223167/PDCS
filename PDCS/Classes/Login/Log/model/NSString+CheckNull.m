@@ -25,4 +25,12 @@
     return NO;
 }
 
++(NSString*)todayString{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
+    return dateTime;
+}
+
+
 @end

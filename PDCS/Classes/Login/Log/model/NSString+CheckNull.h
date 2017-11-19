@@ -11,4 +11,6 @@
 @interface NSString (CheckNull)
 
 +(BOOL)isStringEmpty:(NSString*)string;
+
++(NSString*)todayString;
 @end

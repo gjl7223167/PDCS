@@ -226,19 +226,19 @@
         self.zichanString = @"";
         self.tongyeString = @"";
         self.qianString = @"";
-        self.timeString = [self todayString];
+        self.timeString = [NSString todayString];
     }else if (type == selectGPZCtype){
         self.zichanString = value;
         self.tongyeString = @"";
         self.qianString = @"";
-        self.timeString = [self todayString];
+        self.timeString = [NSString todayString];
     }else if (type == selectGPTYtype){
         self.tongyeString = value;
         self.qianString = @"";
-        self.timeString = [self todayString];
+        self.timeString = [NSString todayString];
     }else if (type == selectGPRMBtype){
         self.qianString = value;
-        self.timeString = [self todayString];
+        self.timeString = [NSString todayString];
     }
 
     NSString * string = [NSString stringWithFormat:@"APPPriceCurveList('%@', '%@', '%@','%@','%@')",self.jigouString,self.timeString,self.qianString,self.zichanString,self.tongyeString];
@@ -265,7 +265,7 @@
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
         [self.contentView addSubview:_webView];
         
-        NSString * today  = [self todayString];
+        NSString * today  = [NSString todayString];
         self.jigouString = @"0042";
         self.timeString = today;
         self.qianString = @"CNY";
@@ -274,13 +274,6 @@
         [_webView requestURL:RDefaultUrl JSString:@"APPPriceCurveList('0042', '2017-11-18', 'CNY','2','01001')"];
     }
     
-}
-
--(NSString*)todayString{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
-    return dateTime;
 }
 
 -(void)dealloc{

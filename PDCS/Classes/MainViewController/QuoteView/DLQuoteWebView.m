@@ -34,7 +34,12 @@
 }
 
 -(void)viewUISet:(WKWebViewConfiguration*)con{
-    self.webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:con];
+    if (con){
+        self.webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:con];
+    }else{
+        self.webView = [[WKWebView alloc] initWithFrame:self.bounds];
+    }
+    
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
     [self addSubview:self.webView];
@@ -97,13 +102,13 @@
         UserModel * model = [[UserModelTool sharedUserModelTool] readMessageObject];
         NSString * stirn = [NSString stringWithFormat:@"APPSetLoginUser('%@','%@')",model.ROLE_ID,model.USER_ID];
         [self.webView evaluateJavaScript:stirn completionHandler:^(id obje, NSError * _Nullable error) {
-            //                        NSLog(@"%@",obje);
-            //                        NSLog(@"error : %@",error);
+                                    NSLog(@"%@",obje);
+                                    NSLog(@"error : %@",error);
         }];
        
         [self.webView evaluateJavaScript:self.JSString completionHandler:^(id obj, NSError * _Nullable error) {
-//                        NSLog(@"reuslt : %@",obj);
-//                        NSLog(@"reuslt error : %@",error);
+                        NSLog(@"reuslt : %@",obj);
+                        NSLog(@"reuslt error : %@",error);
         }];
 }
 
@@ -139,19 +144,18 @@
     [vc addAction:cancelAction];
     
     [self.weakVC presentViewController:vc animated:YES completion:nil];
-    
 }
 
 /* 警告框，页面中有调用JS的 alert 方法就会调用该方法 */
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    UIAlertController * vc = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    UIAlertController * vc = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
-    }];
-    
-    [vc addAction:okAction];           // A
-    [self.weakVC presentViewController:vc animated:YES completion:nil];
+//    }];
+//
+//    [vc addAction:okAction];
+//    [self.weakVC presentViewController:vc animated:YES completion:nil];
     
 }
 
