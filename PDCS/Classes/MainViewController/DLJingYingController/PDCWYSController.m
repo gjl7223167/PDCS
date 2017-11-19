@@ -8,11 +8,14 @@
 
 #import "PDCWYSController.h"
 #import "ZJLPageControl.h"
+#import "DLQuoteWebView.h"
 #define     kPageCtrlH       45.0f
 
 @interface PDCWYSController ()<ZJLPageControlDelegate>
 @property (nonatomic, strong)ZJLPageControl * pageCtrl;
 @property(nonatomic,strong)NSMutableArray * titleAry;
+
+@property (nonatomic,strong) DLQuoteWebView * webView;
 @end
 
 @implementation PDCWYSController
@@ -39,16 +42,11 @@
     [self.view addSubview:_pageCtrl];
 }
 
-
-
 -(void) pageIndexChanged:(NSInteger) pageIndex{
     [self showTableListAndData:pageIndex];
 }
 
-
 -(void)showTableListAndData:(NSInteger )dTag{
-    
-    
     
 }
 
@@ -58,7 +56,19 @@
 }
 
 
-
+#pragma  mark -**  WKWebview **-
+-(void)initView{
+    CGSize vSize = self.view.size;
+    if (_webView == nil) {
+        
+        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+        [self.view addSubview:_webView];
+        
+        NSString * today  = [NSString todayString];
+       
+    }
+    
+}
 
 
 

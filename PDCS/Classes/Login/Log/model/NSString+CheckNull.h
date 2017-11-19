@@ -13,4 +13,5 @@
 +(BOOL)isStringEmpty:(NSString*)string;
 
 +(NSString*)todayString;
++(NSString*)monthString;
 @end

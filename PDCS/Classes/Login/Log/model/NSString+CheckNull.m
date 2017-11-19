@@ -32,5 +32,12 @@
     return dateTime;
 }
 
++(NSString*)monthString{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMM"];
+    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
+    return dateTime;
+}
+
 
 @end

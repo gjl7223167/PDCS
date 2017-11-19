@@ -27,7 +27,9 @@
 @property(nonatomic,strong)NSMutableArray * titlesSRAry;//收入
 
 @property (nonatomic,strong) DLQuoteWebView * webView;
-
+@property (nonatomic,copy) NSString * typeString;
+@property (nonatomic,copy) NSString * timeString;
+@property (nonatomic,copy) NSString * brankString;
 @end
 
 @implementation PDJYYSController
@@ -38,6 +40,7 @@
     
      [self.view addSubview:self.segmenterBut];
     [self initAry];
+    [self initView];
 }
 
 -(void)initAry{
@@ -129,8 +132,17 @@
   
             [weakSelf reqstJYZK:selectIndex AndType:type];
 //            [weakSelf.webView requestJSString:[weakSelf appJSString:type value:number]];
-            
-            NSLog(@"%@  -- %@  ---- %ld",number,dicStr,selectIndex);
+            if (type == selectZYZKFHtype){
+                weakSelf.brankString = number;
+                weakSelf.typeString = @"";
+                weakSelf.timeString = [NSString monthString];
+                [weakSelf.webView requestURL:@"http://lanshaoqi.cn/state_chart_511.html" JSString:[NSString stringWithFormat:@"APPLoadData('%@','%@')",weakSelf.timeString,number]];
+            }else if (type == selectZYZKYStype){
+                weakSelf.typeString = number;
+                weakSelf.timeString = [NSString monthString];
+                [weakSelf webViewRequest:number time: weakSelf.timeString index:selectIndex];
+            }
+            NSLog(@"%@  -- %@  ---- %ld -- %ld",number,dicStr,selectIndex,type);
         };
         
         self.tableListView.cancelBlock = ^(){
@@ -144,6 +156,38 @@
     }
 }
 
+-(void)webViewRequest:(NSString*)orgid time:(NSString*)time index:(NSInteger)index{
+    if (![NSString isStringEmpty:orgid]){
+        if (![NSString isStringEmpty:time]){
+            self.timeString = [NSString monthString];
+        }
+        NSString * url = nil;
+        NSString * jsUrl = nil;
+        if (index == 0){
+            url = @"http://lanshaoqi.cn/state_table_512.html";
+            jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
+        }else if (index == 1){
+            url = @"http://lanshaoqi.cn/state_chart_521.html";
+            jsUrl =  [NSString stringWithFormat:@"APPLoadData('%@','%@')",time,orgid];
+        }else if (index == 2){
+            url = @"http://lanshaoqi.cn/state_chart_531.html";
+            jsUrl =  [NSString stringWithFormat:@"APPLoadData('%@','%@')",time,orgid];
+        }else if (index == 3){
+            url = @"http://lanshaoqi.cn/state_table_542.html";
+            jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
+        }else if (index == 4){
+        jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
+            url = @"http://lanshaoqi.cn/state_table_522.html";
+        }
+        if (![NSString isStringEmpty:url]){
+             [_webView requestURL:url JSString:jsUrl];
+        }
+       
+    }
+    
+}
+
+
 -(void)tableListCancael{
     if ( self.tableListView ) {
         self.tableListView  = nil;
@@ -154,17 +198,27 @@
 -(void)reqstJYZK:(NSInteger )selectIndex AndType:(currentType )type{
     if (type == selectZYZKYStype) {
         
-        [PDJYZKModel requestComputModel:selectIndex ParamDic:nil blok:^(NSDictionary *dict) {
-            
-        }];
+//        [PDJYZKModel requestComputModel:selectIndex ParamDic:nil blok:^(NSDictionary *dict) {
+//
+//        }];
         
     }
 }
 
 
--(void)requestKWView{
-    UserModel * model = [[UserModelTool sharedUserModelTool] readMessageObject];
-
+#pragma  mark -**  WKWebview **-
+-(void)initView{
+    CGSize vSize = self.view.size;
+    if (_webView == nil) {
+        
+        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+        [self.view addSubview:_webView];
+    
+        NSString * today  = [NSString monthString];
+        self.timeString = today;
+        self.typeString = @"CNY";
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
