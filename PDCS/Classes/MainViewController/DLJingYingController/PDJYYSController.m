@@ -157,11 +157,29 @@
     }
 }
 
+
+-(void)requestKWView{
+    UserModel * model = [[UserModelTool sharedUserModelTool] readMessageObject];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
+ 指标完成情况
+ 页面地址
+ http://lanshaoqi.cn/state_table_512.html
+ 
+ 获取页面数据
+ 
+ APPLoadData(BNAME, MONTH_ID, ORG_ID)
+ 参数说明（该页面所需要的参数其实是从上一个页面传过来的。例如5-1-1页面跳转页面的方法第一个参数）
+ BNAME          银行名称
+ MONTH_ID       查询月份格式：yyyyMM
+ ORG_ID          用户所属机构代码
+ */
 
 @end

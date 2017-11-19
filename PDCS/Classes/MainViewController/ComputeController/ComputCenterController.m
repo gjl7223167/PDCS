@@ -80,7 +80,7 @@
 
 -(void)PageControView{
     CGRect pRect = CGRectMake(0, 0, SCREEN_WIDTH, kPageCtrlH);
-    _pageCtrl = [[ZJLPageControl alloc]initWithFrame:pRect titles:_titleAry defaultP:0 isWidthChange:NO];
+    _pageCtrl = [[ZJLPageControl alloc]initWithFrame:pRect titles:_titleAry defaultP:0 isWidthChange:YES];
     _pageCtrl.pageDelegate = self;
     _pageCtrl.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageCtrl];
