@@ -48,12 +48,14 @@
     
     [self initData];
     [self initView];
-    [self requestWithMethod];
+    
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self requestWithMethod];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -121,7 +123,7 @@
         _segmenterBut = [[PDCSSegmentedButtonView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SegmentedH) titles:self.segmentedTitles];
         _segmenterBut.clickBlock = ^(NSInteger bTag) {
             if (bTag == 2) {
-                [weakSelf requestRMB];
+//                [weakSelf requestRMB];
             }
             [weakSelf clickBlockIndex:bTag];
         };
@@ -151,7 +153,7 @@
         case 2:
         {
             ctype = selectSCRMBtype;
-            
+            data = _titlesAry[cSelectIndex][@"BZ_LIST"];
         }
             break;
 
@@ -174,7 +176,7 @@
             if (ctype == selectSCRENBCtype) {
                 cSelectIndex = selectIndex;
                 RATE_LLLX = _titlesAry[cSelectIndex][@"RATE_LLLX"];
-                [weakSelf requestRMB];
+//                [weakSelf requestRMB];
             }
             [_webView requestJSString:[self appJSString:type value:number]];
             NSLog(@"%@  -- %@  ---- %ld",number,dicStr,selectIndex);
