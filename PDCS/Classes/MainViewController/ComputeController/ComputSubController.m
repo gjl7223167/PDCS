@@ -44,7 +44,6 @@
     // Do any additional setup after loading the view.
 
      [self initData];
-     [self initView];
    CGRect bouns = [UIScreen mainScreen].bounds;
     self.view.frame = CGRectMake(0, 0,bouns.size.width , bouns.size.height);
 }

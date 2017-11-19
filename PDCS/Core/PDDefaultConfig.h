@@ -28,7 +28,9 @@ typedef enum CuttentType{
     selectSCRMBtype,//市场人民币
     selectFTPQUFLtype,//FTP全部分类
     selectFTPRMBtype,//FTP人民币
-    selectTimetype//日期时间
+    selectTimetype,//日期时间
+    selectZYZKFHtype,//经营状况  分行
+    selectZYZKYStype//经营状况   收入来源
 }currentType;
 
 typedef enum CurrentSelectStatus{
