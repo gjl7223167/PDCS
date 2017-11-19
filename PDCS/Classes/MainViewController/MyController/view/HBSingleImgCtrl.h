@@ -11,5 +11,5 @@
 @interface HBSingleImgCtrl : UIControl
 
 - (void)updateViewWith:(NSString*)pName imgPath:(NSString*)imgPath orImgUrl:(NSString*)imgUrl;
-
+- (void)imageData:(NSData*)imageData;
 @end

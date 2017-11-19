@@ -54,4 +54,13 @@
     }
 }
 
+-(void)imageData:(NSData *)imageData{
+    if (imageData){
+        UIImage * image = [UIImage imageWithData:imageData];
+        _imageView.image = image;
+    }else{
+        _imageView.image = [UIImage imageNamed:@"user_PImg.jpg"];
+    }
+}
+
 @end

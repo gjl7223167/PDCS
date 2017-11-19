@@ -15,5 +15,4 @@
 @property (nonatomic, copy)btnClickBlock btnClickBlock;
 
 - (void)upLoadViewInfo;
-- (void)redDotShowWith:(BOOL)isShow;
 @end
