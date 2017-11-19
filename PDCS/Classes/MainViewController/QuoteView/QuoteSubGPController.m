@@ -258,12 +258,18 @@
     CGSize vSize = self.view.size;
     if (_webView == nil) {
         
+        
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        configuration.userContentController = [WKUserContentController new];
-        [configuration.userContentController addScriptMessageHandler:self name:@"aPPIOS.sponsorSelectTime"];
+        WKUserContentController *userContent = [[WKUserContentController alloc] init];
+        [userContent addScriptMessageHandler:self name:@"aPPIOS.sponsorSelectTime"];
+        [userContent addScriptMessageHandler:self name:@"aPPIOS"];
+        [userContent addScriptMessageHandler:self name:@"sponsorSelectTime"];
+        configuration.userContentController = userContent;
+        
         
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
         [self.view addSubview:_webView];
+        
         
         NSString * today  = [NSString todayString];
         self.jigouString = @"0042";
@@ -275,6 +281,7 @@
     }
     
 }
+
 
 -(void)dealloc{
     [self.webView removeFromSuperview];

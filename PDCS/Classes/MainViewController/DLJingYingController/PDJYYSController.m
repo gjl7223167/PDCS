@@ -11,6 +11,7 @@
 #import "PDCSSegmentedButtonView.h"
 #import "TwoTableView.h"
 #import "PDJYZKModel.h"
+#import "DLQuoteWebView.h"
 
 @interface PDJYYSController ()
 {
@@ -24,6 +25,9 @@
 
 @property(nonatomic,strong)NSMutableArray * titlesFHAry;//分行
 @property(nonatomic,strong)NSMutableArray * titlesSRAry;//收入
+
+@property (nonatomic,strong) DLQuoteWebView * webView;
+
 @end
 
 @implementation PDJYYSController
