@@ -74,7 +74,7 @@
         }else{
             VC = (ComputCenterController *)_crtAray[i];
         }
-        VC.view.frame = self.contentView.bounds;
+        VC.view.frame = self.view.bounds;
         [self addChildViewController:VC];
     }
     ComputSubController *Vc = _crtAray[0];

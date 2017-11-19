@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.contentView addSubview:self.segmenterBut];
+    [self.view addSubview:self.segmenterBut];
      cSelectIndex = 0;
     
     [self initData];
@@ -213,7 +213,7 @@
             [weakSelf tableListCancael];
         };
         
-        [self.contentView addSubview:_tableListView];
+        [self.view addSubview:_tableListView];
         
     }else{
         [self.tableListView updata:info AndType:type];
@@ -255,7 +255,7 @@
 
 #pragma  mark -**  WKWebview **-
 -(void)initView{
-    CGSize vSize = self.contentView.size;
+    CGSize vSize = self.view.size;
     if (_webView == nil) {
         
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
@@ -263,7 +263,7 @@
         [configuration.userContentController addScriptMessageHandler:self name:@"aPPIOS.sponsorSelectTime"];
         
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
-        [self.contentView addSubview:_webView];
+        [self.view addSubview:_webView];
         
         NSString * today  = [NSString todayString];
         self.jigouString = @"0042";

@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.contentView addSubview:self.segmenterBut];
+    [self.view addSubview:self.segmenterBut];
     cSelectIndex = 0;
     
     [self initData];
@@ -146,7 +146,7 @@
             [weakSelf tableListCancael];
         };
         
-        [self.contentView addSubview:_tableListView];
+        [self.view addSubview:_tableListView];
         
     }else{
         [self.tableListView updata:info AndType:type];
@@ -164,17 +164,17 @@
 #pragma  mark -**  WKWebview **-
 -(void)initView{
     
-    CGSize vSize = self.contentView.size;
+    CGSize vSize = self.view.size;
     if (_webView == nil) {
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
-        [self.contentView addSubview:_webView];
+        [self.view addSubview:_webView];
         NSString * today  = [NSString todayString];
         
-        self.timeString = @"2017-07-01";
+        self.timeString = today;
         self.bizhongString = @"CNY";
         self.quxianString = @"1101";
-        
-        [_webView requestURL:@"http://lanshaoqi.cn/index_ftp.html" JSString:@"APPPriceCurveList('CNY','1101','2017-11-18')"];
+        NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@')",self.bizhongString,self.quxianString,self.timeString];
+        [_webView requestURL:@"http://lanshaoqi.cn/index_ftp.html" JSString:jsString];
     }
     
 }

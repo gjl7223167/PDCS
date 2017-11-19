@@ -177,6 +177,10 @@
 }
 
 
+-(void)tableViewFooterView:(UIView *)footView{
+    tableV.tableFooterView = footView;
+}
+
 
 
 

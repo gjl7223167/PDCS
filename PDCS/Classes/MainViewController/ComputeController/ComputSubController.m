@@ -110,7 +110,8 @@
     _pageCtrl = [[ZJLPageControl alloc]initWithFrame:pRect titles:_titleAry defaultP:_toIndex isWidthChange:NO];
     _pageCtrl.pageDelegate = self;
     _pageCtrl.backgroundColor = [UIColor whiteColor];
-    [self.contentView addSubview:_pageCtrl];
+    [self.view addSubview:_pageCtrl];
+    [self showTableListAndData:0];
 }
 
 -(void) pageIndexChanged:(NSInteger) pageIndex{
@@ -121,13 +122,13 @@
 -(void)showTableListAndData:(NSInteger )dTag{
     
     
-    
-    [requestDic setObject:_keyArys[dTag] forKey:@"PRD_CAL_TYPE"];
+    if (_keyArys.count > dTag)
+        [requestDic setObject:_keyArys[dTag] forKey:@"PRD_CAL_TYPE"];
     
     if (self.tableView == nil) {
      
         WEAKSELF
-        self.tableView = [[ComputTableView alloc] initWithFrame:CGRectMake(0, kPageCtrlH, SCREEN_WIDTH, self.contentView.height) InfoData:self.infoDic];
+        self.tableView = [[ComputTableView alloc] initWithFrame:CGRectMake(0, kPageCtrlH, SCREEN_WIDTH, self.view.height) InfoData:self.infoDic];
         
         self.tableView.cellDidClickBlock = ^(NSIndexPath * index) {
             NSLog(@"______%ld",(long)index);
@@ -136,10 +137,11 @@
      
         [self.view addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView).offset(kPageCtrlH);
+            make.top.equalTo(self.view).offset(kPageCtrlH);
 //            make.top.equalTo(self.view);
             make.left.right.bottom.equalTo(self.view);
         }];
+        [self tableViewFooterViewSet];
     }else{
         
 //        [self.tableListView updata:info AndType:type];
@@ -147,6 +149,29 @@
     }
 }
 
+
+-(void)tableViewFooterViewSet{
+    UIView * backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,kWIDTH, 130)];
+    backView.backgroundColor = kViewBgColor;
+    
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake((kWIDTH - 310) / 2.0, 43, 310, 44);
+    
+//    [button setImage:[UIImage imageNamed:@"DLButton_backIcon"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"DLButton_backIcon"] forState:UIControlStateNormal];
+//    button.titleLabel.text = @"价格试算";
+    [button setTitle:@"价格试算" forState:UIControlStateNormal];
+    button.titleLabel.textColor =  [UIColor whiteColor];
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [button addTarget:self action:@selector(jiSuanJieGuoButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [backView addSubview:button];
+    [self.tableView tableViewFooterView:backView];
+}
+
+-(void)jiSuanJieGuoButtonEvent:(UIButton*)button{
+    NSLog(@"产品试算计算价格");
+}
 
 
 
@@ -167,6 +192,9 @@
    
     
     NSArray * names = dict[@"name"];
+    if (names.count <= 0){
+        return;
+    }
     CGRect btmFrame = SCREEN_BOUNDS;
     if (!ISIOS7ORLATER) {
         btmFrame.size.height -= 20;
@@ -382,9 +410,14 @@
         NSDictionary * dict = self.infoDic[@"cpxx"];
         NSArray * cary = dict[@"value"];
         
-        for (NSMutableDictionary * mDic in cary) {
-            [mDic setObject:@"" forKey:@"value"];
+        if (row == 0) {
+            NSMutableDictionary * mDict = cary[1];
+            [mDict setObject:@"" forKey:@"value"];
+        }else if (row == 1){
+            NSMutableDictionary * mDict = cary[2];
+            [mDict setObject:@"" forKey:@"value"];
         }
+
     }else if (section == 2){
         
     }

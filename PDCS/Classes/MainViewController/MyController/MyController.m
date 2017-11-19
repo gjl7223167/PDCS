@@ -51,13 +51,13 @@
 - (void)initView
 {
     [self initHeaderViews];
-    CGSize vSize                = self.contentView.size;
+    CGSize vSize                = self.view.size;
     _myTableView                = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, vSize.height - kTabbarH) style:UITableViewStylePlain];
     _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _myTableView.dataSource     = self;
     _myTableView.delegate       = self;
     _myTableView.backgroundColor= [UIColor clearColor];
-    [self.contentView addSubview:_myTableView];
+    [self.view addSubview:_myTableView];
     _topHeader                  = [[PDUserHDView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.7)];
     WEAKSELF
     _topHeader.btnClickBlock    = ^(NSInteger cTag){
