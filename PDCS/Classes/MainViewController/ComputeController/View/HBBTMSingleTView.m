@@ -41,7 +41,7 @@
     
     UIButton* cleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     cleBtn.frame = CGRectMake(0, 0, 80, 40);
-    cleBtn.titleLabel.font = [HBUtils appFontWithSize:14];
+    cleBtn.titleLabel.font = [PDUtils appFontWithSize:14];
     cleBtn.backgroundColor = [UIColor clearColor];
     [cleBtn setTitleColor:KTSubmTClr forState:UIControlStateNormal];
     [cleBtn setTitle:@"取消" forState:UIControlStateNormal];
@@ -51,7 +51,7 @@
     
     UIButton* subBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     subBtn.frame = CGRectMake(SCREEN_WIDTH - 80, 0, 80, 40);
-    subBtn.titleLabel.font = [HBUtils appFontWithSize:14];
+    subBtn.titleLabel.font = [PDUtils appFontWithSize:14];
     subBtn.backgroundColor = [UIColor clearColor];
     [subBtn setTitleColor:KCurrColor forState:UIControlStateNormal];
     [subBtn setTitle:@"确定" forState:UIControlStateNormal];
@@ -59,7 +59,7 @@
     subBtn.tag = 10002;
     [_mainView addSubview:subBtn];
     
-    _tLabel = [HBUtils createLabel:@"标题" with:KTMainTClr frame:CGRectMake(0, 0, SCREEN_WIDTH, subBtn.height) with:14];
+    _tLabel = [PDUtils createLabel:@"标题" with:KTMainTClr frame:CGRectMake(0, 0, SCREEN_WIDTH, subBtn.height) with:14];
     _tLabel.textAlignment = NSTextAlignmentCenter;
     [_mainView addSubview:_tLabel];
     
@@ -146,24 +146,24 @@
 - (void)btnClicked:(UIButton*)btn
 {
     if (btn.tag == 10001) {
-        Log(@"取消了");
+        NSLog(@"取消了");
         [self dismiss];
     }else if(btn.tag == 10002){
         if (_slctIndex < 0) {
             [SVProgressHUD showImage:nil status:@"请选择一个时间"];
             return;
         }
-        Log(@"确定了");
+        NSLog(@"确定了");
         if (_iBlock) {
             _iBlock(_slctIndex);
         }
         [self dismiss];
     }else if (btn.tag == 10003){
-        Log(@"可以出租");
+        NSLog(@"可以出租");
         _isOK = YES;
     }else{
         _isOK = NO;
-        Log(@"不出租");
+        NSLog(@"不出租");
     }
 }
 

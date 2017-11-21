@@ -36,22 +36,23 @@
     if (ISIOS7AndAbove) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-        
     }
     
     [self initNaviBarView];
     self.navigationController.toolbar.hidden = YES;
     
-    CGSize size = self.view.frame.size;
-    CGRect cFrame = CGRectMake(0, 0, SCREEN_WIDTH, size.height - kNaviBarH);
-    if ([PDUtils getIOSVersion] < 7.0) {
-        cFrame.origin.y = 0;
-    }
-    
-    self.contentView = [[UIView alloc]initWithFrame:cFrame];
-    [self.contentView setBackgroundColor:kViewBgColor];
-    [self.view addSubview:self.contentView];
-
+//    CGSize size = self.view.frame.size;
+//    CGRect cFrame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
+//    if ([PDUtils getIOSVersion] < 7.0) {
+//        cFrame.origin.y = 0;
+//    }
+//
+//    self.contentView = [[UIView alloc]initWithFrame:cFrame];
+//    [self.contentView setBackgroundColor:kViewBgColor];
+//    [self.view addSubview:self.contentView];
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.top.bottom.equalTo(self.view);
+//    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -124,6 +125,11 @@
     [_rightBtn setImage:img forState:UIControlStateNormal];
     _rightBtn.width     = iSize.width + 5;
     _rightBtn.height    = 35.0f;
+}
+
+
+-(void)subVCContentViewHeight{
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

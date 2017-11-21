@@ -53,14 +53,8 @@
         iFrame.size.height += 20;
     }
     
-    NSString* imgName = @"750-1334.png";
-    if (IS_IPHONE_4_OR_LESS) {
-        imgName = @"640-960";
-    }else if(IS_IPHONE_5){
-        imgName = @"640-1136";
-    }else if (IS_IPHONE_6P){
-        imgName = @"1242-2208";
-    }
+    NSString* imgName = @"DLLogin_backIcon.png";
+
     
     UIImage* image = [UIImage imageNamed:imgName];
     

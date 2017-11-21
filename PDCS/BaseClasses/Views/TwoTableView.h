@@ -13,7 +13,7 @@
  number 编号
  dicStr 描述
  */
-typedef void(^selectEndBlack)(NSString *number,NSString *dicStr,NSInteger selectIndex);
+typedef void(^selectEndBlack)(NSString *number,NSString *dicStr,NSInteger selectIndex );
 
 @interface TwoTableView : UIView<UITableViewDelegate,UITableViewDataSource>
 {

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDLoginController">
             <connections>
                 <outlet property="backImage" destination="NKK-ss-vne" id="Kzm-EO-ZJF"/>
+                <outlet property="codeView" destination="Oik-IV-ZbE" id="mot-TW-J6D"/>
                 <outlet property="logBtn" destination="UQD-Di-sMY" id="JqV-d9-dqT"/>
                 <outlet property="nameTextField" destination="p2N-ex-jaC" id="qr8-Dc-Fip"/>
                 <outlet property="passwordTextField" destination="k3v-Qz-GPo" id="CBn-cm-YW7"/>
@@ -54,9 +56,9 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入图形验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-vM-SMh">
-                            <rect key="frame" x="10" y="110" width="320.5" height="40"/>
+                            <rect key="frame" x="10" y="110" width="219" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="dUW-gd-8MC"/>
+                                <constraint firstAttribute="height" constant="40" id="hzq-Z1-w1K"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -85,6 +87,18 @@
                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oik-IV-ZbE" customClass="DLLoginCodeView">
+                            <rect key="frame" x="231" y="114.5" width="68" height="31"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="68" id="8GU-Q9-OV0"/>
+                                <constraint firstAttribute="height" constant="31" id="a3V-79-Sgg"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="hC1-lb-8AW" appends="YES" id="iF8-xI-Lif"/>
+                            </connections>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
@@ -96,12 +110,14 @@
                         <constraint firstItem="p2N-ex-jaC" firstAttribute="top" secondItem="Wzj-gI-KYK" secondAttribute="top" constant="8" id="MDl-Cv-l4J"/>
                         <constraint firstItem="116-vM-SMh" firstAttribute="top" secondItem="gMP-Wy-cpd" secondAttribute="bottom" constant="5" id="NcJ-1e-QvM"/>
                         <constraint firstItem="a4j-l4-X0b" firstAttribute="leading" secondItem="Wzj-gI-KYK" secondAttribute="leading" constant="10" id="PoP-c7-Qye"/>
+                        <constraint firstAttribute="trailing" secondItem="Oik-IV-ZbE" secondAttribute="trailing" constant="32" id="QvU-pK-GLl"/>
                         <constraint firstAttribute="height" constant="155" id="TYh-0f-gS8"/>
                         <constraint firstAttribute="trailing" secondItem="gMP-Wy-cpd" secondAttribute="trailing" constant="10" id="UZ2-bT-MY7"/>
-                        <constraint firstAttribute="trailing" secondItem="116-vM-SMh" secondAttribute="trailing" id="bLD-6l-u3u"/>
                         <constraint firstItem="a4j-l4-X0b" firstAttribute="top" secondItem="p2N-ex-jaC" secondAttribute="bottom" constant="5" id="fy3-Lp-MYB"/>
                         <constraint firstItem="k3v-Qz-GPo" firstAttribute="leading" secondItem="Wzj-gI-KYK" secondAttribute="leading" constant="10" id="hfC-24-QiO"/>
+                        <constraint firstItem="Oik-IV-ZbE" firstAttribute="leading" secondItem="116-vM-SMh" secondAttribute="trailing" constant="2" id="mXA-Na-nHl"/>
                         <constraint firstItem="p2N-ex-jaC" firstAttribute="leading" secondItem="Wzj-gI-KYK" secondAttribute="leading" constant="10" id="o97-80-GSA"/>
+                        <constraint firstItem="Oik-IV-ZbE" firstAttribute="centerY" secondItem="116-vM-SMh" secondAttribute="centerY" id="qrH-ze-QpL"/>
                         <constraint firstItem="gMP-Wy-cpd" firstAttribute="top" secondItem="k3v-Qz-GPo" secondAttribute="bottom" constant="5" id="whg-mK-Dam"/>
                         <constraint firstItem="gMP-Wy-cpd" firstAttribute="leading" secondItem="Wzj-gI-KYK" secondAttribute="leading" constant="10" id="xpk-QE-F8e"/>
                     </constraints>
@@ -149,5 +165,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="29.5" y="-234.5"/>
         </view>
+        <tapGestureRecognizer id="hC1-lb-8AW">
+            <connections>
+                <action selector="changeCode:" destination="-1" id="TnB-pk-C4W"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

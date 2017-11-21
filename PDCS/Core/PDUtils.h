@@ -51,6 +51,7 @@
  */
 + (UILabel*)createNormalLabel:(NSString*)label with:(UIColor*)corlor frame:(CGRect)rect Fontwith:(int)fontsize;
 + (UILabel*) createLabel:(CGRect)rect with: (UIColor*)color with: (CGFloat) radius;
++ (UILabel*)createLabel:(NSString*)label with:(UIColor*)corlor frame:(CGRect)rect with:(int)fontsize;
 //创建单行 自适应
 + (UILabel*)createLabel:(NSString*)label with:(UIColor*)corlor in:(CGPoint)topleft with:(int)fontsize;
 + (CGSize)textSizeWithString:(NSString*)strText withFontSize:(CGFloat)fontSize;

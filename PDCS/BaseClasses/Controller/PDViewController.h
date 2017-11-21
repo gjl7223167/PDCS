@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface PDViewController : UIViewController
 
-@property (nonatomic, strong)UIView*            contentView;
+//@property (nonatomic, strong)UIView*            contentView;
 
 - (void)leftBtnClicked:(id)sender;
 - (void)rightBtnClicked:(id)sender;
@@ -19,4 +19,5 @@
 
 - (void)rightBtnImgWith:(NSString*)imgName;
 
+-(void)subVCContentViewHeight;
 @end

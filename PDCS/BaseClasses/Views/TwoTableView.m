@@ -127,6 +127,7 @@
             break;
         case selectSCRMBtype:
         {
+            [_aryOnr setArray:info];
         }
             break;
             //FTP利率//
@@ -140,7 +141,17 @@
             [_aryOnr setArray:info];
         }
             break;
-
+                //经营状况
+        case selectZYZKFHtype:
+        {
+            [_aryOnr setArray:info];
+        }
+            break;
+        case selectZYZKYStype:
+        {
+            [_aryOnr setArray:info];
+        }
+            break;
         default:
             break;
     }
@@ -339,6 +350,7 @@
             break;
         case selectSCRMBtype:
         {
+             tempStr = dict[@"CURR_ZWM"];
         }
             break;
             //FTP利率//
@@ -352,8 +364,19 @@
             tempStr = dict[@"CURR_ZWM"];
         }
             break;
+        case selectZYZKFHtype:
+        {
+            tempStr = dict[@"ORG_NAME"];
+        }
+            break;
+        case selectZYZKYStype:
+        {
+            tempStr = dict[@"name"];
+        }
+            break;
         default:
             break;
+            
     }
     return tempStr;
 }
@@ -493,6 +516,7 @@
             break;
         case selectGPRMBtype:
         {
+            [dict setValue:info[@"CURR_ISO"] forKey:@"number"];
             [dict setValue:info[@"CURR_ZWM"] forKey:@"name"];
         }
             break;
@@ -511,6 +535,8 @@
             break;
         case selectSCRMBtype:
         {
+            [dict setValue:info[@"CURR_ISO"] forKey:@"number"];
+            [dict setValue:info[@"CURR_ZWM"] forKey:@"name"];
         }
             break;
             //FTP利率//
@@ -524,6 +550,18 @@
         {
             [dict setValue:info[@"CURR_ISO"] forKey:@"number"];
             [dict setValue:info[@"CURR_ZWM"] forKey:@"name"];
+        }
+            break;
+        case selectZYZKFHtype:
+        {
+            [dict setValue:info[@"ORG_ID"] forKey:@"number"];
+            [dict setValue:info[@"ORG_NAME"] forKey:@"name"];
+        }
+            break;
+        case selectZYZKYStype:
+        {
+            [dict setValue:info[@"value"] forKey:@"number"];
+            [dict setValue:info[@"name"] forKey:@"name"];
         }
             break;
         default:

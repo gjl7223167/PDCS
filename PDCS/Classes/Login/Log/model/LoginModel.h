@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LoginModel : NSObject
-+(NSString *)logWithInfoName:(NSString *)name PassWord:(NSString *)password Validation:(NSString *)validat;
++(NSString *)logWithInfoName:(NSString *)name PassWord:(NSString *)password;
+
 
 @end

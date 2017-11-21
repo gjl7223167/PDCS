@@ -67,7 +67,6 @@
     [_crtAray addObject:quoteFtpVC];
 }
 
-
 -(void)addCVC{
     for (int i = 0; i < _crtAray.count; i++) {
         UIViewController * Vc;
@@ -79,7 +78,7 @@
             Vc = (QuoteSubFTPController*)_crtAray[i];
         }
         
-        Vc.view.frame = self.contentView.bounds;
+        Vc.view.frame = self.view.bounds;
         [self addChildViewController:Vc];
        
     }
@@ -147,9 +146,7 @@
 //            [oldController willMoveToParentViewController:nil];
 //            [oldController removeFromParentViewController];
             _currentVC = newController;
-
-        }else
-        {
+        }else{
             _currentVC = oldController;
         }
         

@@ -13,7 +13,7 @@
 #import "PDNavigationController.h"
 #import "PDLoginViewController.h"
 
-@interface MyController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong)UITableView * myTableView;
 @property(nonatomic,strong)PDUserHDView * topHeader;
 @property (nonatomic, strong)NSMutableArray*        headerViews;
@@ -43,27 +43,25 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
 
 - (void)initView
 {
     [self initHeaderViews];
-    CGSize vSize                = self.contentView.size;
+    CGSize vSize                = self.view.size;
     _myTableView                = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, vSize.height - kTabbarH) style:UITableViewStylePlain];
     _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _myTableView.dataSource     = self;
     _myTableView.delegate       = self;
     _myTableView.backgroundColor= [UIColor clearColor];
-    [self.contentView addSubview:_myTableView];
-    _topHeader                  = [[PDUserHDView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.7)];
+    [self.view addSubview:_myTableView];
+    _topHeader                  = [[PDUserHDView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];
     WEAKSELF
     _topHeader.btnClickBlock    = ^(NSInteger cTag){
         [weakSelf dealCtrlClickWith:cTag];
     };
     [_topHeader upLoadViewInfo];
+    _topHeader.backgroundColor = [UIColor whiteColor];
+    _myTableView.tableHeaderView = _topHeader;
     [self addHeader];
     //    header = [CExpandHeader expandWithScrollView:_myTableView expandView:_topHeader];
     
@@ -106,22 +104,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return SCREEN_WIDTH * 0.7;
-    }else{
-        return KSecHeight;
+  
+    if (section == 0){
+        return 1;
     }
+        return KSecHeight;
+    
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    if (section >= 1) {
-//        UIView* view = _headerViews[section - 1];
-//        return view;
-//    }else{
-    if (section == 0)
-        return _topHeader;
-//    }
-    return nil;
+
+    UIView * view = nil;
+    if (section == 0){
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 1)];
+    }else{
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 10)];
+    }
+    
+    view.backgroundColor = kViewBgColor;
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -167,13 +168,148 @@
 }
 
 - (void)dealCtrlClickWith:(NSInteger)cTag{
-    [kUserDefault setBool:NO forKey:KIsFirstUse];
+
+    //选择是打开相机还是打开相册
+    UIActionSheet * choose_picture = [[UIActionSheet alloc]initWithTitle:@"请选择图像" delegate:self cancelButtonTitle:nil
+                                                  destructiveButtonTitle:@"返回"
+                                                       otherButtonTitles:@"拍照", @"从相册里选择",nil];
+    [choose_picture showInView:self.view];
     
-    PDLoginViewController* aVc = [[PDLoginViewController alloc]init];
-    PDNavigationController *navi=[[PDNavigationController alloc]initWithRootViewController:aVc];
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    window.rootViewController = navi;
+//    [kUserDefault setBool:NO forKey:KIsFirstUse];
+//    PDLoginViewController* aVc = [[PDLoginViewController alloc]init];
+//    PDNavigationController *navi=[[PDNavigationController alloc]initWithRootViewController:aVc];
+//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//    window.rootViewController = navi;
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    switch (buttonIndex) {
+        case 1:
+        {
+            //打开相机
+            UIImagePickerController *icon_picture = [[UIImagePickerController alloc] init];
+            icon_picture.sourceType = UIImagePickerControllerSourceTypeCamera;
+            icon_picture.delegate = self;
+            [self presentViewController:icon_picture animated:YES completion:nil];
+        }
+            break;
+        case 2:
+        {
+            //打开图库
+            UIImagePickerController *icon_picture = [[UIImagePickerController alloc] init];
+            icon_picture.title = @"";
+            icon_picture.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            icon_picture.delegate = self;
+            [self presentViewController:icon_picture animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark imagepicker delegate
+/**
+ *  图库代理方法
+ *
+ *  @param picker 要销毁picker
+ *  @param info   传回的图片
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
+    UIImage *portraitImg = info[UIImagePickerControllerOriginalImage];
+//    PDCEditUserInfoUrl
+    NSData * data = UIImageJPEGRepresentation(portraitImg, 0.5);
+    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    UserModel * userModel = [[UserModelTool sharedUserModelTool] readMessageObject];
+    
+    if (encodedImageStr){
+        NSDictionary * par = @{@"USER_ID":userModel.USER_ID,@"HEAD_IMG":encodedImageStr};
+        [NetTool post:PDCEditUserInfoUrl params:par success:^(id JSON) {
+            NSLog(@"%@",JSON);
+            userModel.HEAD_IMG_INFO = encodedImageStr;
+            [_topHeader upLoadViewInfo];
+        } failure:^(NetError *error) {
+            NSLog(@"%@",error);
+        }];
+    }
+    
+}
+
+
+
+#pragma mark image scale utility
+- (UIImage *)imageByScalingToMaxSize:(UIImage *)sourceImage {
+    if (sourceImage.size.width < 640.0f) return sourceImage;
+    CGFloat btWidth = 0.0f;
+    CGFloat btHeight = 0.0f;
+    if (sourceImage.size.width > sourceImage.size.height) {
+        btHeight = 640.0f;
+        btWidth = sourceImage.size.width * (640.0f / sourceImage.size.height);
+    } else {
+        btWidth = 640.0f;
+        btHeight = sourceImage.size.height * (640.0f / sourceImage.size.width);
+    }
+    CGSize targetSize = CGSizeMake(btWidth, btHeight);
+    return [self imageByScalingAndCroppingForSourceImage:sourceImage targetSize:targetSize];
+}
+
+- (UIImage *)imageByScalingAndCroppingForSourceImage:(UIImage *)sourceImage targetSize:(CGSize)targetSize {
+    UIImage *newImage = nil;
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaleFactor = 0.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
+    if (CGSizeEqualToSize(imageSize, targetSize) == NO)
+    {
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        
+        if (widthFactor > heightFactor)
+            scaleFactor = widthFactor; // scale to fit height
+        else
+            scaleFactor = heightFactor; // scale to fit width
+        scaledWidth  = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        
+        // center the image
+        if (widthFactor > heightFactor)
+        {
+            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+        }
+        else
+            if (widthFactor < heightFactor)
+            {
+                thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+            }
+    }
+    UIGraphicsBeginImageContext(targetSize); // this will crop
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin = thumbnailPoint;
+    thumbnailRect.size.width  = scaledWidth;
+    thumbnailRect.size.height = scaledHeight;
+    
+    [sourceImage drawInRect:thumbnailRect];
+    
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    if(newImage == nil) NSLog(@"could not scale image");
+    
+    //pop the context to get back to the default
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
 
 -(void)setIsLogin:(BOOL)isLogin{
     if (_isLogin != isLogin){

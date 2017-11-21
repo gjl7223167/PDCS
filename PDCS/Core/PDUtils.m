@@ -225,5 +225,15 @@
 }
 
 
++ (UILabel*)createLabel:(NSString*)label with:(UIColor*)corlor frame:(CGRect)rect with:(int)fontsize{
+    UILabel* label1 = [[UILabel alloc] initWithFrame:rect];
+    [label1 setText:label];
+    [label1 setFont:[PDUtils appFontWithSize:fontsize]];
+    [label1 setBackgroundColor:[UIColor clearColor]];
+    [label1 setTextColor:corlor];
+    label1.numberOfLines = 1;
+    //    [label1 autorelease];
+    return label1;
+}
 
 @end

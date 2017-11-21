@@ -15,6 +15,8 @@
 #define     KEdgeGap        15.0f
 #define    KSecHeight    10.f
 #define    kLineHeight 0.6
+#define     KDfltBdWidth    0.6f
+#define kDefaultLineColor UIColorFromRGB(0xf3efef)
 
 typedef enum CuttentType{
     selectGPZHtype = 0,//挂牌利率 某支行
@@ -26,7 +28,9 @@ typedef enum CuttentType{
     selectSCRMBtype,//市场人民币
     selectFTPQUFLtype,//FTP全部分类
     selectFTPRMBtype,//FTP人民币
-    
+    selectTimetype,//日期时间
+    selectZYZKFHtype,//经营状况  分行
+    selectZYZKYStype//经营状况   收入来源
 }currentType;
 
 typedef enum CurrentSelectStatus{

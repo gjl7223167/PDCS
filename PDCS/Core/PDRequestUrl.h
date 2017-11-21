@@ -15,7 +15,7 @@
 /*
  设备编号 客户端类型1:android,2:ios
  */
-#define DEV_TYPE @"1"
+#define DEV_TYPE @"2"
 
 /*
  服务器跟地址
@@ -190,8 +190,58 @@
  */
 #define PDCR_CPSSXXCXType_Url @"mssia/product/queryProductInfo"
 
+/*
+ **  产品试算-合同期限**
+ USER_ID    用户编号    String    20    Y
+ ROLE_ID    用户角色编号    String    20    Y
+ PRD_CAL_TYPE    类别代码    String    3    Y
+ PRD_CPDM    产品代码
+ */
+#define PDCR_CPSSXXHTType_Url @"mssia/product/queryProductContract"
+
+/*
+  **  产品试算-币种查询**
+ USER_ID    用户编号    String    20    Y
+ ROLE_ID    用户角色编号    String    20    Y
+ PRD_CPDM    产品代码    String    24    Y
+ TERM_QXBM    期限编码    String    3    N
+ TERM_TS    期限天数    INTEGER    5    Y
+ PRD_CAL_TYPE    类别代码    String    3    Y
+ */
+#define PDCR_CPSSXXBZType_Url @"mssia/product/queryProductHuobi"
 
 
+/*
+   **  产品试算-客户类别**
+ USER_ID    用户编号    String    20    Y
+ ROLE_ID    用户角色编号    String    20    Y
+ PRD_CPDM    产品代码    String    24    Y
+ TERM_QXBM    期限编码    String    3    N
+ TERM_TS    期限天数    INTEGER    5    Y
+ PRD_CAL_TYPE    类别代码    String    3    Y
+ PRD_BZ    币种代码    Strin
+ */
+#define PDCR_CPSSXXKHLEType_Url @"mssia/product/queryProductCusType"
+
+
+
+/*
+ ****产品试算-所属机构信息查询**
+ USER_ID    用户编号    String    20    Y
+ ROLE_ID    用户角色编号    String    20    Y
+ PRD_CPDM    产品代码    String    24    Y
+ TERM_QXBM    期限编码    String    3    N
+ TERM_TS    期限天数    INTEGER    5    Y
+ PRD_BZ    币种代码    String    3    Y
+ CUST_LVL    客户类别代码    String    10    Y
+ ORG_LVL    机构级别    String    10    Y    3:分行
+ 5:支行
+ 7:网点
+ ORG_ID    用户所属机构    String    10    Y
+ PRD_CAL_TYPE    类别代码    String    3    Y
+ ORG_PAR_ID    上级机构代码    String    10    N    机构级别为3时不必输，其他必输
+ */
+#define PDCR_CPSSXXJGXXType_Url @"mssia/product/queryProductOrg"
 
 #pragma mark --- 中间业务
 /*
@@ -201,6 +251,13 @@
  */
 #define PDCR_CPZJYWType_Url @"mssia/other/queryBusType"
 
+
+/*
+ **  中间业务-信息数据查询**
+ USER_ID                用户编号
+ ROLE_ID                用户角色编号
+ */
+#define PDCR_CPZJYWXXSJType_Url @"mssia/other/queryBusInfo"
 
 
 

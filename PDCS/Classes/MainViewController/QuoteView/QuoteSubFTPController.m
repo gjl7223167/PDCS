@@ -8,13 +8,14 @@
 
 #import "QuoteSubFTPController.h"
 #import "QuoteHeader.h"
+#import "DLQuoteWebView.h"
 @interface QuoteSubFTPController ()<WKUIDelegate,WKNavigationDelegate,UIScrollViewDelegate>
 {
     QuoteDataModel * dataTypeModel;
     NSInteger cSelectIndex;
     currentType ctype;
 }
-@property(nonatomic,strong)WKWebView * webView;
+@property(nonatomic,strong)DLQuoteWebView * webView;
 
 @property(nonatomic,strong)NSMutableArray * titlesAry;
 
@@ -25,6 +26,9 @@
 @property(nonatomic,copy)NSString * disStr;
 
 @property(nonatomic,strong)NSArray * segmentedTitles;
+@property (nonatomic,copy)NSString * bizhongString;
+@property (nonatomic,copy)NSString * quxianString;
+@property (nonatomic,copy)NSString * timeString;
 @end
 
 @implementation QuoteSubFTPController
@@ -32,12 +36,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.contentView addSubview:self.segmenterBut];
+    [self.view addSubview:self.segmenterBut];
     cSelectIndex = 0;
     
     [self initData];
     [self initView];
-    [self requestUrl];
     [self requestWithMethod];
     
 }
@@ -48,7 +51,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.webView.scrollView.delegate = nil;
 }
 
 -(void)initData{
@@ -144,7 +146,7 @@
             [weakSelf tableListCancael];
         };
         
-        [self.contentView addSubview:_tableListView];
+        [self.view addSubview:_tableListView];
         
     }else{
         [self.tableListView updata:info AndType:type];
@@ -162,87 +164,28 @@
 #pragma  mark -**  WKWebview **-
 -(void)initView{
     
-    CGSize vSize = self.contentView.size;
+    CGSize vSize = self.view.size;
     if (_webView == nil) {
-        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
-        _webView.UIDelegate = self;
-        _webView.navigationDelegate = self;
-        _webView.scrollView.delegate = self;
-        [self.contentView addSubview:_webView];
+        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+        [self.view addSubview:_webView];
+        NSString * today  = [NSString todayString];
+        
+        self.timeString = today;
+        self.bizhongString = @"CNY";
+        self.quxianString = @"1101";
+        NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@')",self.bizhongString,self.quxianString,self.timeString];
+        [_webView requestURL:@"http://lanshaoqi.cn/index_ftp.html" JSString:jsString];
     }
     
 }
 
--(void)requestUrl{
-    
-    NSURL * urlStr= [NSURL URLWithString:RDefaultUrl];
-    NSURLRequest * request = [NSURLRequest requestWithURL:urlStr];
-    [_webView loadRequest:request];
-}
 
 
 
-
-/*WKNavigationDelegate 代理方法*/
-
-/* 1.在发送请求之前，决定是否跳转  */
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-    decisionHandler(WKNavigationActionPolicyAllow);
-}
-
-/* 2.页面开始加载 */
--(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-    NSLog(@"开始加载");
-}
-
-/* 3.在收到服务器的响应头，根据response相关信息，决定是否跳转。 */
--(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(nonnull WKNavigationResponse *)navigationResponse decisionHandler:(nonnull void (^)(WKNavigationResponsePolicy))decisionHandler{
-    
-    
-    decisionHandler(WKNavigationResponsePolicyAllow);
-    NSLog(@"在收到服务器的响应头，根据response相关信息，决定是否跳转");
-}
-/* 4.开始获取到网页内容时返回，需要注入JS，在这里添加 */
--(void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation{
-    NSLog(@"开始获取到网页内容时返回，需要注入JS，在这里添加");
-}
-
-/* 5.页面加载完成之后调用 */
--(void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
-    NSLog(@"页面加载完成之后调用");
-}
-
-/* error - 页面加载失败时调用 */
--(void)webView:(WKWebView *)webView didFailLoadWithError:(nonnull NSError *)error{
-    NSLog(@"失败");
-}
-
-/* 其他 - 处理服务器重定向Redirect */
--(void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
-    
-}
-
-/*WKUIDelegate 代理方法*/
-
-/* 输入框，页面中有调用JS的 prompt 方法就会调用该方法 */ - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *result))completionHandler{
-    
-}
-
-/* 确认框，页面中有调用JS的 confirm 方法就会调用该方法 */
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler{
-    
-}
-
-/* 警告框，页面中有调用JS的 alert 方法就会调用该方法 */
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    
-}
 
 -(void)dealloc{
-    self.webView.navigationDelegate = nil;
     [self.webView removeFromSuperview];
     self.webView = nil;
-    self.webView.scrollView.delegate = nil;
 }
 
 
