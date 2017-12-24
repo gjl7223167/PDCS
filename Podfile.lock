@@ -18,10 +18,10 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - PXAlertView (0.1.1)
-  - SDWebImage (4.2.2):
-    - SDWebImage/Core (= 4.2.2)
-  - SDWebImage/Core (4.2.2)
-  - SVProgressHUD (2.2.2)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -38,8 +38,8 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PXAlertView: bb8a7e6bb95f73fe3fe091cacd279b683460f084
-  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
-  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
 PODFILE CHECKSUM: 34e28ea7bea3bc6bbd57283e361d386e98b7d545
 
