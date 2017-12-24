@@ -260,6 +260,9 @@
         
         
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.preferences.javaScriptEnabled = true;
+        configuration.preferences.javaScriptCanOpenWindowsAutomatically = false;
+        
         WKUserContentController *userContent = [[WKUserContentController alloc] init];
         [userContent addScriptMessageHandler:self name:@"aPPIOS.sponsorSelectTime"];
         [userContent addScriptMessageHandler:self name:@"aPPIOS"];

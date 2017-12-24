@@ -167,6 +167,13 @@
         NSLog(@"时间时间时间");
     }
     
+    if ([message.name isEqualToString:@"aPPIOS"]) {
+        NSLog(@"时间时间时间");
+    }
+    
+    if ([message.name isEqualToString:@"sponsorSelectTime"]) {
+        NSLog(@"时间时间时间");
+    }
     
 }
 
