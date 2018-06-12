@@ -159,20 +159,22 @@
             return;
         }
         
-        //        [dic setValue:nameStr forKey:@"DEVICE_ID"];
-        //        [dic setValue:passWordStr forKey:@"USER_PSW"];
-        
-        //        NSString * stringMD = [LCMD5Tool MD5ForUpper32Bate:@"123123123"];
-        //        [dic setValue:stringMD forKey:@"USER_PSW"];
-        
-        //        NSString* uuid = [PDUtils uidStringForDevice];
-        //        [dic setValue:uuid forKey:@"DEVICE_ID"];
-        
         NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
         [dic setValue:DEV_TYPE forKey:@"DEV_TYPE"];
-        [dic setValue:@"heyi001" forKey:@"USER_ID"];
-        [dic setValue:@"123123123" forKey:@"DEVICE_ID"];
-        [dic setValue:@"E10ADC3949BA59ABBE56E057F20F883E" forKey:@"USER_PSW"];
+        [dic setValue:nameStr forKey:@"USER_ID"];
+        [dic setValue:passWordStr forKey:@"USER_PSW"];
+        
+        NSString * stringMD = [LCMD5Tool MD5ForUpper32Bate:passWordStr];
+        [dic setValue:stringMD forKey:@"USER_PSW"];
+        
+        NSString* uuid = [PDUtils uidStringForDevice];
+        [dic setValue:uuid forKey:@"DEVICE_ID"];
+        
+//        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+//        [dic setValue:DEV_TYPE forKey:@"DEV_TYPE"];
+//        [dic setValue:@"heyi001" forKey:@"USER_ID"];
+//        [dic setValue:@"123123123" forKey:@"DEVICE_ID"];
+//        [dic setValue:@"E10ADC3949BA59ABBE56E057F20F883E" forKey:@"USER_PSW"];
         
         [NetTool post:PDLoginUrl params:dic success:^(id JSON) {
             

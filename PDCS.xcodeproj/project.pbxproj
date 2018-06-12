@@ -134,6 +134,7 @@
 		FD9A22E51FC127210058EA69 /* PDJYYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E41FC127210058EA69 /* PDJYYSController.m */; };
 		FD9A22E81FC1273D0058EA69 /* PDCWYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */; };
 		FD9A22EC1FC134610058EA69 /* PDJYZKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */; };
+		FD9BDBDA20CFC65C005FBC2E /* NSDictionary+ALExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,6 +408,8 @@
 		FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCWYSController.m; sourceTree = "<group>"; };
 		FD9A22EA1FC134610058EA69 /* PDJYZKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDJYZKModel.h; sourceTree = "<group>"; };
 		FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDJYZKModel.m; sourceTree = "<group>"; };
+		FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ALExtension.m"; sourceTree = "<group>"; };
+		FD9BDBD920CFC65C005FBC2E /* NSDictionary+ALExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ALExtension.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -925,6 +928,8 @@
 		88D0D6021F733E7D004C5ADD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FD9BDBD920CFC65C005FBC2E /* NSDictionary+ALExtension.h */,
+				FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */,
 				88D0D6031F733E8A004C5ADD /* UIView+Utils.h */,
 				88D0D6041F733E8A004C5ADD /* UIView+Utils.m */,
 			);
@@ -1163,8 +1168,8 @@
 				TargetAttributes = {
 					88D0D5AE1F715895004C5ADD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 27CH5YC47J;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4N6HHC837R;
+						ProvisioningStyle = Manual;
 					};
 					88D0D5C71F715895004C5ADD = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1458,6 +1463,7 @@
 				0DEC32FA1FC03AAD008862CA /* DLQuoteWebView.m in Sources */,
 				88C2CDC51F776198009003B1 /* UIView+MJExtension.m in Sources */,
 				88309E3E1F7565D9001ECA02 /* LoginModel.m in Sources */,
+				FD9BDBDA20CFC65C005FBC2E /* NSDictionary+ALExtension.m in Sources */,
 				88309E3A1F752297001ECA02 /* NetSucc.m in Sources */,
 				FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */,
 				88309E341F75110D001ECA02 /* NetError.m in Sources */,
@@ -1645,16 +1651,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27CH5YC47J;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4N6HHC837R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PDCS/Core/PrefixHeader.pch";
 				INFOPLIST_FILE = PDCS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gupiao.www.ps111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "237fb09a-f840-4657-977c-d3db555ddf4a";
+				PROVISIONING_PROFILE_SPECIFIER = TestDevelopment;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -1666,16 +1672,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27CH5YC47J;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4N6HHC837R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PDCS/Core/PrefixHeader.pch";
 				INFOPLIST_FILE = PDCS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gupiao.www.ps111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "237fb09a-f840-4657-977c-d3db555ddf4a";
+				PROVISIONING_PROFILE_SPECIFIER = TestDevelopment;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;

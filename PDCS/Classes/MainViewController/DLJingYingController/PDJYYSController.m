@@ -142,7 +142,7 @@
                 weakSelf.timeString = [NSString monthString];
                 [weakSelf webViewRequest:number time: weakSelf.timeString index:selectIndex];
             }
-            NSLog(@"%@  -- %@  ---- %ld -- %ld",number,dicStr,selectIndex,type);
+            NSLog(@"%@  -- %@  ---- %ld -- %u",number,dicStr,selectIndex,type);
         };
         
         self.tableListView.cancelBlock = ^(){

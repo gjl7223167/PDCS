@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我 的";
     [self initView];
 }
 
@@ -48,7 +49,8 @@
 {
     [self initHeaderViews];
     CGSize vSize                = self.view.size;
-    _myTableView                = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, vSize.height - kTabbarH) style:UITableViewStylePlain];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    _myTableView                = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, vSize.height - kTabbarH - 64) style:UITableViewStylePlain];
     _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _myTableView.dataSource     = self;
     _myTableView.delegate       = self;
@@ -63,21 +65,20 @@
     _topHeader.backgroundColor = [UIColor whiteColor];
     _myTableView.tableHeaderView = _topHeader;
     [self addHeader];
-    //    header = [CExpandHeader expandWithScrollView:_myTableView expandView:_topHeader];
     
     UserModel * userModel = [[UserModelTool sharedUserModelTool] readMessageObject];
     NSDictionary * dic = userModel.userDictionary;
     self.dataArray = @[
-                       @{@"title":@"用户编号",@"value":dic[@"USER_ID"]},
-                       @{@"title":@"用户姓名",@"value":dic[@"NAME_CN"]},
-                       @{@"title":@"用户性别",@"value":dic[@"USER_SEX"]},
-                       @{@"title":@"所属机构",@"value":dic[@"ORG_NAME"]},
-                       @{@"title":@"用户类型",@"value":dic[@"USER_TYP_NAME"]},
-                       @{@"title":@"用户职位",@"value":dic[@"USER_PRIVILEGE_NAME"]},
-                       @{@"title":@"电子邮箱",@"value":dic[@"USER_EMAIL"]},
+                       @{@"title":@"用户编号",@"value":[dic safeStringObjectForKey:@"USER_ID"]},
+                       @{@"title":@"用户姓名",@"value":[dic safeStringObjectForKey:@"NAME_CN"]},
+                       @{@"title":@"用户性别",@"value":[dic safeStringObjectForKey:@"USER_SEX"]},
+                       @{@"title":@"所属机构",@"value":[dic safeStringObjectForKey:@"ORG_NAME"]},
+                       @{@"title":@"用户类型",@"value":[dic safeStringObjectForKey:@"USER_TYP_NAME"]},
+                       @{@"title":@"用户职位",@"value":[dic safeStringObjectForKey:@"USER_PRIVILEGE_NAME"]},
+                       @{@"title":@"电子邮箱",@"value":[dic safeStringObjectForKey:@"USER_EMAIL"]},
                        @{@"title":@"电话号码",@"value":dic[@"USER_TEL"]},
-                       @{@"title":@"住址",@"value":dic[@"USER_ADDR"]},
-                       @{@"title":@"备注",@"value":dic[@"COMM"]}
+                       @{@"title":@"住址",@"value":[dic safeStringObjectForKey:@"USER_ADDR"]},
+                       @{@"title":@"备注",@"value":[dic safeStringObjectForKey:@"COMM"]}
                      ];
 }
 - (void)addHeader

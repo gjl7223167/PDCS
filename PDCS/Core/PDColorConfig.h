@@ -18,7 +18,7 @@
 #define     KTSubmTClr       UIColorFromRGB(0x909090)
 
 
-#define KNaviTitleClr   UIColorFromRGB(0x202020)     //导航栏有文字颜色
+#define KNaviTitleClr   UIColorFromRGB(0xFFFFFF)     //导航栏有文字颜色
 #define kBtmBarBgColor  UIColorFromRGB(0xffffff)     //底部导航背景颜色
 #define kBarBgColor    UIColorFromRGB(0x3D8BFF)     //蓝色页面背景颜色
 #define     KCurrColor      UIColorFromRGB(0xfc7822)
