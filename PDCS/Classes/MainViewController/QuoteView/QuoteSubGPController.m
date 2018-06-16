@@ -70,7 +70,6 @@
 
 #pragma  mark -**  数据请求 **-
 -(void)requestWithMethod{
-
     [_titlesAry   removeAllObjects];
     [_titlesZHAry removeAllObjects];
     [_titlesBZAry removeAllObjects];
@@ -92,7 +91,6 @@
         [weakSelf aryAndDict:obj];
     }];
     
-    
     NSMutableDictionary * dFH = [[NSMutableDictionary alloc] init];
     [dFH setObject:model.USER_ID forKey:@"USER_ID"];
     [dFH setObject:model.ROLE_ID forKey:@"ROLE_ID"];
@@ -113,7 +111,6 @@
     }];
     
     
-    
 }
 
 -(void)aryAndDict:(id)obj{
@@ -129,6 +126,7 @@
         }
     }
 }
+
 -(void)aryAndJGDict:(id)obj{
     
     _titlesZHAry = obj;
@@ -205,7 +203,6 @@
             }
             
             [weakSelf.webView requestJSString:[weakSelf appJSString:type value:number]];
-            
             NSLog(@"%@  -- %@  ---- %ld",number,dicStr,selectIndex);
         };
         

@@ -161,8 +161,6 @@
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     
-    
-    
     if ([message.name isEqualToString:@"aPPIOS.sponsorSelectTime"]) {
         NSLog(@"时间时间时间");
     }
@@ -174,9 +172,7 @@
     if ([message.name isEqualToString:@"sponsorSelectTime"]) {
         NSLog(@"时间时间时间");
     }
-    
 }
-
 
 
 @end

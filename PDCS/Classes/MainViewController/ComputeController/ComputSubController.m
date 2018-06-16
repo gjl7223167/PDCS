@@ -30,9 +30,7 @@
 @property(nonatomic,strong)ComputTableView *tableView;
 @property(nonatomic,strong)NSMutableArray * keyArys;
 
-
 @property(nonatomic,strong)NSMutableArray * titleAry;
-
 @property(nonatomic,strong)NSMutableDictionary * infoDic;
 @end
 
