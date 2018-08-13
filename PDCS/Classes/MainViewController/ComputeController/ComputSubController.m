@@ -36,7 +36,6 @@
 
 @implementation ComputSubController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -50,7 +49,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self requestWithMethod];
-   
 }
 
 -(void)requestWithMethod{

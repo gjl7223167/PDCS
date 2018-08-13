@@ -144,7 +144,6 @@
 
 - (IBAction)clickLogBtn:(id)sender {
     
-
    NSString * pormpt = [LoginModel logWithInfoName:nameStr PassWord:passWordStr];
     if (pormpt) {
          [PXAlertView showAlertWithTitle:pormpt];
@@ -191,7 +190,7 @@
         }];
         
     }
- 
+
 }
 
 - (void)curtainRevealViewController:(UIViewController *)viewControllerToReveal

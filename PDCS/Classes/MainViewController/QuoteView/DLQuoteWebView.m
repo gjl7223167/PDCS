@@ -57,7 +57,6 @@
         NSURL * urlStr= [NSURL URLWithString:string];
         NSURLRequest * request = [NSURLRequest requestWithURL:urlStr];
         [self.webView loadRequest:request];
-      
     }
 }
 

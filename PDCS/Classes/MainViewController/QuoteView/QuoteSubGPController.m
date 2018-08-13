@@ -9,6 +9,7 @@
 #import "QuoteSubGPController.h"
 #import "QuoteHeader.h"
 #import "DLQuoteWebView.h"
+#import "ALQoteUIwebView.h"
 
 @interface QuoteSubGPController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 {
@@ -16,7 +17,9 @@
     NSInteger cSelectIndex;
     currentType ctype;
 }
-@property(nonatomic,strong)DLQuoteWebView * webView;
+//@property(nonatomic,strong)DLQuoteWebView * webView;
+@property(nonatomic,strong)ALQoteUIwebView * webView;
+
 
 @property(nonatomic,strong)NSMutableArray * titlesAry;//资金 同业
 @property(nonatomic,strong)NSMutableArray * titlesZHAry;//某支行
@@ -267,7 +270,10 @@
         configuration.userContentController = userContent;
         
         
-        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
+//        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
+//        [self.view addSubview:_webView];
+
+        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
         [self.view addSubview:_webView];
         
         
