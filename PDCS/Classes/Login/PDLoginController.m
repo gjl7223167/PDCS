@@ -176,7 +176,7 @@
         
         [NetTool post:PDLoginUrl params:dic success:^(id JSON) {
             
-            [kUserDefault setBool:YES forKey:KIsFirstUse];
+       [kUserDefault setBool:YES forKey:KIsFirstUse];
             UserModel * model = [[UserModel alloc] initWithDataModel:JSON];
             [[UserModelTool sharedUserModelTool] storgaeObject:model];
             
