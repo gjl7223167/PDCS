@@ -30,14 +30,11 @@
 @property(nonatomic,strong)ComputTableView *tableView;
 @property(nonatomic,strong)NSMutableArray * keyArys;
 
-
 @property(nonatomic,strong)NSMutableArray * titleAry;
-
 @property(nonatomic,strong)NSMutableDictionary * infoDic;
 @end
 
 @implementation ComputSubController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,7 +49,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self requestWithMethod];
-   
 }
 
 -(void)requestWithMethod{

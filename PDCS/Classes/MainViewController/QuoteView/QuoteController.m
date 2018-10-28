@@ -34,9 +34,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    
-    [self showRightBtn];
-    [self rightBtnTitleWith:@"刷新"];
 }
 
 -(PDCSSegmentedView *)segmentedView{
@@ -85,18 +82,6 @@
     QuoteSubGPController *Vc = _crtAray[0];
      [self.view addSubview:Vc.view];
     _currentVC = Vc;
-}
-
-
-
-
--(void)rightBtnClicked:(id)sender{
-//    NSURL * urlStr= [NSURL URLWithString:RDefaultUrl];
-//    NSURLRequest * request = [NSURLRequest requestWithURL:urlStr];
-//    if (_webView) {
-//        [_webView loadRequest:request];
-//    }
-    
 }
 
 /*

@@ -81,29 +81,13 @@
 - (void)curtainRevealViewController:(UIViewController *)viewControllerToReveal
 {
     AppDelegate *appDelegate = [AppDelegate getAppDelegate];
-    
-    UIImage *selfPortrait = [self imageWithView:self.contentView];
-    
-    CGSize vSize = self.contentView.size;
-    CGRect iFrame = CGRectMake(0, 0, vSize.width, vSize.height);
-    UIImageView* myImgView = [[UIImageView alloc]initWithFrame:iFrame];
-    myImgView.image = selfPortrait;
-    
     if ([viewControllerToReveal isKindOfClass:[UITabBarController class]]) {
         appDelegate.window.rootViewController = viewControllerToReveal;
     }else{
         PDNavigationController* navi = [[PDNavigationController alloc]initWithRootViewController:viewControllerToReveal];
         appDelegate.window.rootViewController = navi;
     }
-    [appDelegate.window addSubview:myImgView];
-    
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        myImgView.alpha = 0;
-    } completion:^(BOOL finished){
-        [myImgView removeFromSuperview];
-    }];
 }
-
 
 #pragma mark - loading  start
 - (UIImage *)imageWithView:(UIView *)view

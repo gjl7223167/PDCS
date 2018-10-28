@@ -28,7 +28,6 @@
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 
 
-
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
 #define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -37,7 +36,7 @@
 #define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-
+#define IS_IPHONE_8X (IS_IPHONE && SCREEN_MAX_LENGTH > 736 && SCREEN_MAX_LENGTH<=812)
 
 // block self
 #define WEAKSELF typeof(self) __weak weakSelf = self;

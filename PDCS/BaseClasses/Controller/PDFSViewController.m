@@ -33,9 +33,6 @@
     if (ISIOS7AndAbove) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    //    CGRect frame = self.view.frame;
-    //    Log(@"height = %2.1f", frame.size.height);
-    //    self.view.backgroundColor = [UIColor redColor];
     
     CGSize size = self.view.frame.size;
     CGRect cFrame = CGRectMake(0, 0, SCREEN_WIDTH, size.height);
@@ -53,6 +50,8 @@
     self.navigationController.toolbarHidden = YES;
     [self.navigationController setNavigationBarHidden:YES];
     self.navigationController.navigationBarHidden = !self.showNavigationBar;
+    CGSize size = self.view.frame.size;
+    self.contentView.size = CGSizeMake(SCREEN_WIDTH, size.height);
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -18,10 +18,16 @@
 #define DEV_TYPE @"2"
 
 /*
+ web 加载
+ */
+//#define text @"http://lanshaoqi.cn/index.html"
+#define webUrl @"http://yinghang.lanshaoqi.cn/"
+#define RDefaultUrl webUrl
+/*
  服务器跟地址
  */
-#define KBaseUrl @"http://118.190.85.152:8080/"
-
+//#define KBaseUrl @"http://118.190.85.152:8080/"
+#define KBaseUrl @"http://60.205.113.66:8080/"
 /*
  文件缓冲地址
  */

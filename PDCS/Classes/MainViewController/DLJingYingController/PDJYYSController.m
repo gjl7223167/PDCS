@@ -136,13 +136,13 @@
                 weakSelf.brankString = number;
                 weakSelf.typeString = @"";
                 weakSelf.timeString = [NSString monthString];
-                [weakSelf.webView requestURL:@"http://lanshaoqi.cn/state_chart_511.html" JSString:[NSString stringWithFormat:@"APPLoadData('%@','%@')",weakSelf.timeString,number]];
+                [weakSelf.webView requestURL:[NSString stringWithFormat:@"%@state_chart_511.html",RDefaultUrl] JSString:[NSString stringWithFormat:@"APPLoadData('%@','%@')",weakSelf.timeString,number]];
             }else if (type == selectZYZKYStype){
                 weakSelf.typeString = number;
                 weakSelf.timeString = [NSString monthString];
                 [weakSelf webViewRequest:number time: weakSelf.timeString index:selectIndex];
             }
-            NSLog(@"%@  -- %@  ---- %ld -- %ld",number,dicStr,selectIndex,type);
+            NSLog(@"%@  -- %@  ---- %ld -- %u",number,dicStr,selectIndex,type);
         };
         
         self.tableListView.cancelBlock = ^(){
@@ -164,20 +164,20 @@
         NSString * url = nil;
         NSString * jsUrl = nil;
         if (index == 0){
-            url = @"http://lanshaoqi.cn/state_table_512.html";
+            url = [NSString stringWithFormat:@"%@state_table_512.html",RDefaultUrl];
             jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
         }else if (index == 1){
-            url = @"http://lanshaoqi.cn/state_chart_521.html";
+            url =  [NSString stringWithFormat:@"%@state_chart_521.html",RDefaultUrl];
             jsUrl =  [NSString stringWithFormat:@"APPLoadData('%@','%@')",time,orgid];
         }else if (index == 2){
-            url = @"http://lanshaoqi.cn/state_chart_531.html";
+            url = [NSString stringWithFormat:@"%@state_chart_531.html",RDefaultUrl];
             jsUrl =  [NSString stringWithFormat:@"APPLoadData('%@','%@')",time,orgid];
         }else if (index == 3){
-            url = @"http://lanshaoqi.cn/state_table_542.html";
+            url = [NSString stringWithFormat:@"%@state_table_542.html",RDefaultUrl];
             jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
         }else if (index == 4){
         jsUrl = [NSString stringWithFormat:@"APPLoadData('%@','%@','%@')",self.brankString,time,orgid];
-            url = @"http://lanshaoqi.cn/state_table_522.html";
+            url = [NSString stringWithFormat:@"%@state_table_522.html",RDefaultUrl];
         }
         if (![NSString isStringEmpty:url]){
              [_webView requestURL:url JSString:jsUrl];

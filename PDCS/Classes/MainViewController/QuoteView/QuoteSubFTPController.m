@@ -174,9 +174,9 @@
         self.bizhongString = @"CNY";
         self.quxianString = @"1101";
         NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@')",self.bizhongString,self.quxianString,self.timeString];
-        [_webView requestURL:@"http://lanshaoqi.cn/index_ftp.html" JSString:jsString];
+        [_webView requestURL:[NSString stringWithFormat:@"%@index_ftp.html",RDefaultUrl] JSString:jsString];
+        
     }
-    
 }
 
 

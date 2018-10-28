@@ -35,8 +35,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self showRightBtn];
-    [self rightBtnTitleWith:@"请求"];
 }
 
 /*
@@ -84,10 +82,7 @@
 }
 
 
--(void)rightBtnClicked:(id)sender{
 
-
-}
 
 /*
  nav分段显示方法

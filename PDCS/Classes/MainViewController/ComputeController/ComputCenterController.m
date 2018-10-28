@@ -116,7 +116,7 @@
         self.timeString = today;
         self.typeString = @"01";
         self.pageString = @"2";
-        [_webView requestURL:@"http://lanshaoqi.cn/business_table.html" JSString:[NSString stringWithFormat:@"APPLoadData('%@', '%@', '%@')",self.pageString,self.timeString,self.typeString]];
+        [_webView requestURL:[NSString stringWithFormat:@"%@business_table.html",RDefaultUrl] JSString:[NSString stringWithFormat:@"APPLoadData('%@', '%@', '%@')",self.pageString,self.timeString,self.typeString]];
     }
     
 }

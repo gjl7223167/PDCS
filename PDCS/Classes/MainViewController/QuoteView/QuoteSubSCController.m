@@ -74,7 +74,7 @@
 -(void)requestWithMethod{
     
     if (_titlesAry){
-        [_titlesAry   removeAllObjects];
+        [_titlesAry removeAllObjects];
     }
     
     if (_titlesRMBAry)
@@ -93,12 +93,11 @@
     [QuoteRequestModel quoteRequest:PDCR_SCType_Url Parameter:dict Obj:^(id obj) {
         [weakSelf aryAndDict:obj];
     }];
-    
   
 }
 
 -(void)aryAndDict:(id)obj{
-    _titlesAry = obj[@"PAGE_LIST"];
+    [_titlesAry setArray:obj[@"PAGE_LIST"]];
 }
 
 -(void)requestRMB{
@@ -240,7 +239,7 @@
         self.lilvString = @"";
         self.daleiString = @"01";
         NSString * jsString = [NSString stringWithFormat:@"APPPriceCurveList('%@','%@','%@','%@')",self.daleiString,self.qianString,self.lilvString,self.timeString];
-        [_webView requestURL:@"http://lanshaoqi.cn/index_shichang.html" JSString:jsString];
+        [_webView requestURL:[NSString stringWithFormat:@"%@index_shichang.html",RDefaultUrl] JSString:jsString];
     }
 }
 

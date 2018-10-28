@@ -128,12 +128,14 @@
 		99580C7483DFF1ACC6F99D6B /* libPods-PDCS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F638F9F062B8DEF9D1272F /* libPods-PDCS.a */; };
 		E630E7A4AA18BB467710EF45 /* libPods-PDCSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5742BEF5BCBC2B0095CEE8 /* libPods-PDCSUITests.a */; };
 		F6B326B4DE21C01BE554AA51 /* libPods-PDCSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B8C2C6349778859103494A /* libPods-PDCSTests.a */; };
+		FD23320F20D6008100B6C3A7 /* ALQoteUIwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */; };
 		FD9A22DB1FBFE1010058EA69 /* HBBTMSingleTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4E2E51FA4734C00B2DFA1 /* HBBTMSingleTView.m */; };
 		FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */; };
 		FD9A22E21FBFEA080058EA69 /* ComputDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E11FBFEA080058EA69 /* ComputDataModel.m */; };
 		FD9A22E51FC127210058EA69 /* PDJYYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E41FC127210058EA69 /* PDJYYSController.m */; };
 		FD9A22E81FC1273D0058EA69 /* PDCWYSController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */; };
 		FD9A22EC1FC134610058EA69 /* PDJYZKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */; };
+		FD9BDBDA20CFC65C005FBC2E /* NSDictionary+ALExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,6 +399,8 @@
 		BA9686BC3C67894B1B8B2DB9 /* Pods-PDCS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCS/Pods-PDCS.release.xcconfig"; sourceTree = "<group>"; };
 		DAEAC6D762FF4EE678939D27 /* Pods-PDCSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAF8BCA7524A9FA8A68CB7A7 /* Pods-PDCSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD23320D20D6008100B6C3A7 /* ALQoteUIwebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALQoteUIwebView.h; sourceTree = "<group>"; };
+		FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALQoteUIwebView.m; sourceTree = "<group>"; };
 		FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBSglLabCell.m; sourceTree = "<group>"; };
 		FD9A22DE1FBFE1B60058EA69 /* HBSglLabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBSglLabCell.h; sourceTree = "<group>"; };
 		FD9A22E01FBFEA080058EA69 /* ComputDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputDataModel.h; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 		FD9A22E71FC1273D0058EA69 /* PDCWYSController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCWYSController.m; sourceTree = "<group>"; };
 		FD9A22EA1FC134610058EA69 /* PDJYZKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDJYZKModel.h; sourceTree = "<group>"; };
 		FD9A22EB1FC134610058EA69 /* PDJYZKModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDJYZKModel.m; sourceTree = "<group>"; };
+		FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ALExtension.m"; sourceTree = "<group>"; };
+		FD9BDBD920CFC65C005FBC2E /* NSDictionary+ALExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ALExtension.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -925,6 +931,8 @@
 		88D0D6021F733E7D004C5ADD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FD9BDBD920CFC65C005FBC2E /* NSDictionary+ALExtension.h */,
+				FD9BDBD820CFC65C005FBC2E /* NSDictionary+ALExtension.m */,
 				88D0D6031F733E8A004C5ADD /* UIView+Utils.h */,
 				88D0D6041F733E8A004C5ADD /* UIView+Utils.m */,
 			);
@@ -966,6 +974,8 @@
 				88A4E2DC1FA378C900B2DFA1 /* QuoteSubFTPController.m */,
 				0DEC32F81FC03AAD008862CA /* DLQuoteWebView.h */,
 				0DEC32F91FC03AAD008862CA /* DLQuoteWebView.m */,
+				FD23320D20D6008100B6C3A7 /* ALQoteUIwebView.h */,
+				FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */,
 			);
 			name = QuoteController;
 			path = QuoteView;
@@ -1163,8 +1173,8 @@
 				TargetAttributes = {
 					88D0D5AE1F715895004C5ADD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 27CH5YC47J;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4N6HHC837R;
+						ProvisioningStyle = Manual;
 					};
 					88D0D5C71F715895004C5ADD = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1458,6 +1468,8 @@
 				0DEC32FA1FC03AAD008862CA /* DLQuoteWebView.m in Sources */,
 				88C2CDC51F776198009003B1 /* UIView+MJExtension.m in Sources */,
 				88309E3E1F7565D9001ECA02 /* LoginModel.m in Sources */,
+				FD9BDBDA20CFC65C005FBC2E /* NSDictionary+ALExtension.m in Sources */,
+				FD23320F20D6008100B6C3A7 /* ALQoteUIwebView.m in Sources */,
 				88309E3A1F752297001ECA02 /* NetSucc.m in Sources */,
 				FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */,
 				88309E341F75110D001ECA02 /* NetError.m in Sources */,
@@ -1645,16 +1657,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27CH5YC47J;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4N6HHC837R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PDCS/Core/PrefixHeader.pch";
 				INFOPLIST_FILE = PDCS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gupiao.www.ps111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "237fb09a-f840-4657-977c-d3db555ddf4a";
+				PROVISIONING_PROFILE_SPECIFIER = TestDevelopment;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -1666,16 +1678,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27CH5YC47J;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4N6HHC837R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PDCS/Core/PrefixHeader.pch";
 				INFOPLIST_FILE = PDCS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gupiao.www.ps111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "237fb09a-f840-4657-977c-d3db555ddf4a";
+				PROVISIONING_PROFILE_SPECIFIER = TestDevelopment;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
