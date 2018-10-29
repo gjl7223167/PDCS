@@ -13,6 +13,7 @@
 //tianbai对象调用的JavaScript方法，必须声明！！！
 - (void)aPPIOS;
 - (void)sponsorSelectTime:(NSString *)callString;
+- (void)sponsorSelectTime;
 @end
 
 @interface ALQoteUIwebView() <UIWebViewDelegate,JSObjcDelegate>
@@ -94,14 +95,12 @@
     NSLog(@"webViewDidFinishLoad");
     // 设置javaScriptContext上下文
     self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+
     //将tianbai对象指向自身
-    self.jsContext[@"sponsorSelectTime"] = ^(NSString * strDic){
-        NSLog(@"...sponsorSelectTime...%@",strDic);
-    };
-    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
-        context.exception = exceptionValue;
-        NSLog(@"异常信息：%@", exceptionValue);
-    };
+    self.jsContext[@"aPPIOS"] = self;
+
+//    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    context[@"aPPIOS"] = self;
 
 }
 
@@ -123,9 +122,17 @@
 }
 
 
+#pragma mark -JSContext-
+
 //将对象指向自身后，如果调用 tianbai.getCall(callInfo) 会响应下面的方法，OC方法中仅调用JavaScript中的alerCallback方法
 - (void)sponsorSelectTime:(NSString *)callString{
     NSLog(@"Get:%@", callString);
+    // 成功回调JavaScript的方法Callback
+    JSValue *Callback = self.jsContext[@"sponsorSelectTime"];
+    [Callback callWithArguments:nil];
+}
+- (void)sponsorSelectTime{
+    NSLog(@"Get_____");
     // 成功回调JavaScript的方法Callback
     JSValue *Callback = self.jsContext[@"sponsorSelectTime"];
     [Callback callWithArguments:nil];

@@ -9,6 +9,7 @@
 #import "QuoteSubSCController.h"
 #import "QuoteHeader.h"
 #import "DLQuoteWebView.h"
+#import "ALQoteUIwebView.h"
 @interface QuoteSubSCController ()<WKUIDelegate,WKNavigationDelegate>
 {
     QuoteDataModel * dataTypeModel;
@@ -16,7 +17,9 @@
     currentType ctype;
     NSString * RATE_LLLX;
 }
-@property(nonatomic,strong)DLQuoteWebView * webView;
+//@property(nonatomic,strong)DLQuoteWebView * webView;
+
+@property(nonatomic,strong)ALQoteUIwebView * webView;
 
 @property(nonatomic,strong)NSMutableArray * titlesAry;
 @property(nonatomic,strong)NSMutableArray * titlesRMBAry;
@@ -231,7 +234,10 @@
     
     CGSize vSize = self.view.size;
     if (_webView == nil) {
-        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+//        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+
+        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
+
         [self.view addSubview:_webView];
          NSString * today  = [NSString todayString];
         self.qianString = @"CNY";

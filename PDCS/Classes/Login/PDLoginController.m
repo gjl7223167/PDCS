@@ -152,8 +152,8 @@
         if ([NSString isStringEmpty:validationStr]){
             [PXAlertView showAlertWithTitle:@"请输入验证码"];
             return;
-        }else if (![validationStr compare:_codeView.changeString
-                  options:NSCaseInsensitiveSearch |NSNumericSearch] == NSOrderedSame){
+        }else if ((![validationStr compare:_codeView.changeString
+                                   options:NSCaseInsensitiveSearch |NSNumericSearch]) == NSOrderedSame){
             [PXAlertView showAlertWithTitle:@"验证码输入错误"];
             return;
         }
