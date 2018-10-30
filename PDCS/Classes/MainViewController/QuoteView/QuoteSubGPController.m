@@ -273,9 +273,8 @@
 //        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:configuration VC:self];
 //        [self.view addSubview:_webView];
 
-        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
+        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height-(iOSNavHeight+SegmentedH)- kTabbarH)];
         [self.view addSubview:_webView];
-        
         
         NSString * today  = [NSString todayString];
         self.jigouString = @"0042";

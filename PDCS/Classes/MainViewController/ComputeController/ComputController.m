@@ -26,8 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.titleView = self.segmentedView;
-    
+    [self cusTitleView];
     [self initCtrlers];
     [self addCVC];
     
@@ -40,11 +39,15 @@
 /*
  初始化navView
  */
--(PDCSSegmentedView *)segmentedView{
+-(void )cusTitleView{
+    UIView * cusTitle = [PDUtility cusTitleView:self.navigationItem];
     PDCSSegmentedView * segmentedView = [[PDCSSegmentedView alloc] initWithFrame:CGRectMake(67, 5.5, 240, 33)];
     [segmentedView setTitles:@[@"产品试算",@"中间业务"]];
     segmentedView.delegate = self;
-    return segmentedView;
+    
+    segmentedView.centerX = cusTitle.width / 2.0;
+    [cusTitle addSubview:segmentedView];
+    self.navigationItem.titleView = cusTitle;
 }
 
 #pragma  mark ----- subController

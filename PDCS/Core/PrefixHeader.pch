@@ -15,4 +15,7 @@
 
 #import "NSDictionary+ALExtension.h"
 
+#import "TLChooseDateView.h"
+#import "HooDatePicker.h"
+
 #endif /* PrefixHeader_pch */

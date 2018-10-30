@@ -25,22 +25,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.titleView = self.segmentedView;
+    
+    [self cusTitleView];
     [self initCtrlers];
     [self addCVC];
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void )viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
 }
 
--(PDCSSegmentedView *)segmentedView{
-    PDCSSegmentedView * segmentedView = [[PDCSSegmentedView alloc] initWithFrame:CGRectMake(67, 5.5, 240, 33)];
-        [segmentedView setTitles:@[@"挂牌利率",@"市场利率",@"FTP利率"]];
+-(void )cusTitleView{
+    UIView * cusTitle = [PDUtility cusTitleView:self.navigationItem];
+    PDCSSegmentedView * segmentedView = [[PDCSSegmentedView alloc] initWithFrame:CGRectMake(0,0,240, 33)];
+    [segmentedView setTitles:@[@"挂牌利率",@"市场利率",@"FTP利率"]];
     segmentedView.delegate = self;
-    return segmentedView;
+    segmentedView.centerX = cusTitle.width / 2.0;
+    [cusTitle addSubview:segmentedView];
+    self.navigationItem.titleView = cusTitle;
 }
 
 -(void)requestData{

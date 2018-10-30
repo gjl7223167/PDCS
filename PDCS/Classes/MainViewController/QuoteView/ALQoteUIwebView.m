@@ -9,19 +9,22 @@
 #import "ALQoteUIwebView.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
+
 @protocol JSObjcDelegate <JSExport>
-//tianbai对象调用的JavaScript方法，必须声明！！！
-- (void)aPPIOS;
-- (void)sponsorSelectTime:(NSString *)callString;
-- (void)sponsorSelectTime;
+- (void)sponsor:(NSString *)data SelectTime:(NSString *)method;
 @end
 
-@interface ALQoteUIwebView() <UIWebViewDelegate,JSObjcDelegate>
+@interface ALQoteUIwebView() <UIWebViewDelegate,JSObjcDelegate,HooDatePickerDelegate>
 @property(nonatomic,strong)UIWebView * myWebView;
 @property (nonatomic, strong) JSContext *jsContext;
 
 @property (nonatomic,copy) NSString  * urlString;
 @property (nonatomic,copy) NSString * JSString;
+
+@property (nonatomic,strong)HooDatePicker * datePicker;
+//js 调用
+@property (nonatomic,strong)NSMutableDictionary * webDic;
+@property (nonatomic,strong)NSString * methodStr;
 @end
 @implementation ALQoteUIwebView
 
@@ -68,7 +71,6 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSLog(@"request.URL.absoluteString  = %@",request.URL.absoluteString);
-    
 //    NSString *strM = request.URL.absoluteString;
 //    if ([strM containsString:@"yinghang"]) {
 //    }
@@ -82,67 +84,86 @@
 }
 
 
-//1.开始加载网页的时候调用
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidStartLoad");
 }
 
-
-//2.加载完成的时候调用
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidFinishLoad");
-    // 设置javaScriptContext上下文
     self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-
-    //将tianbai对象指向自身
     self.jsContext[@"aPPIOS"] = self;
-
-//    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-//    context[@"aPPIOS"] = self;
-
 }
 
-
-//3.加载失败的时候调用
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     NSLog(@"didFailLoadWithError");
 }
 
-
-//将对象指向自身后，如果调用 tianbai.call() 会响应下面的方法，OC方法中调用js中的Callback方法，并传值
-- (void)aPPIOS{
-    NSLog(@"call");
-    // 之后在回调JavaScript的方法Callback把内容传出去
-    JSValue *Callback = self.jsContext[@"sponsorSelectTime"];
-    //传值给web端
-    [Callback callWithArguments:@[@"唤起本地OC回调完成"]];
-}
-
-
 #pragma mark -JSContext-
 
 //将对象指向自身后，如果调用 tianbai.getCall(callInfo) 会响应下面的方法，OC方法中仅调用JavaScript中的alerCallback方法
-- (void)sponsorSelectTime:(NSString *)callString{
-    NSLog(@"Get:%@", callString);
-    // 成功回调JavaScript的方法Callback
-    JSValue *Callback = self.jsContext[@"sponsorSelectTime"];
-    [Callback callWithArguments:nil];
+
+/**
+ <#Description#>
+ @param data 时间
+ @param method 携带方法名
+ 例  Get:时间__{"RATE_LLZL":"01005","TimeValue":"2016-07-14"} APPOutSponsorSelectTime
+ */
+- (void)sponsor:(NSString *)data SelectTime:(NSString *)method{
+    NSLog(@"Get:时间__%@方法名字__%@",data, method);
+    NSData *jsonData = [data dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSMutableDictionary * tempDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+    self.methodStr = method;
+    self.webDic = tempDic;
+    [self performSelectorOnMainThread:@selector(showDateView:) withObject:tempDic waitUntilDone:NO];
 }
-- (void)sponsorSelectTime{
-    NSLog(@"Get_____");
-    // 成功回调JavaScript的方法Callback
-    JSValue *Callback = self.jsContext[@"sponsorSelectTime"];
-    [Callback callWithArguments:nil];
+
+-(void)showDateView:(NSDictionary *)dic{
+    self.datePicker = [[HooDatePicker alloc] initWithSuperView:[PDUtility windowsWithTopVC]];
+    self.datePicker.delegate = self;
+    NSString * dateStr = [dic objectForKey:@"TimeValue"];
+    self.datePicker.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+    if (dateStr.length > 8) {
+        self.datePicker.datePickerMode = HooDatePickerModeDate;
+    }else{
+        self.datePicker.datePickerMode = HooDatePickerModeYearAndMonth;
+    }
+    NSDateFormatter *dateFormatter = [NSDate shareDateFormatter];
+    [dateFormatter setDateFormat:kDateFormatYYYYMMDD];
+    NSDate *maxDate = [NSDate date];
+    NSDate *minDate = [dateFormatter dateFromString:[dic objectForKey:@"TimeValue"]];
+    
+    [self.datePicker setDate:[NSDate date] animated:YES];
+    self.datePicker.minimumDate = minDate;
+    self.datePicker.maximumDate = maxDate;
+    [self.datePicker show];
 }
 
 
-//将对象指向自身后，还可以向html注入js
-- (void)alert{
-    // 直接添加提示框
-    NSString *str = @"alert('OC添加JS提示成功')";
-    [self.jsContext evaluateScript:str];
+- (void)datePicker:(HooDatePicker *)datePicker didSelectedDate:(NSDate*)date {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"zh_CN"]];
+    
+    if (datePicker.datePickerMode == HooDatePickerModeDate) {
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    } else if (datePicker.datePickerMode == HooDatePickerModeTime) {
+        [dateFormatter setDateFormat:@"HH:mm:ss"];
+    } else if (datePicker.datePickerMode == HooDatePickerModeYearAndMonth){
+        [dateFormatter setDateFormat:@"yyyy-MM"];
+    } else {
+        [dateFormatter setDateFormat:@"dd MMMM yyyy HH:mm:ss"];
+    }
+    NSString *value = [dateFormatter stringFromDate:date];
+    
+    [self.webDic setObject:value forKey:@"TimeValue"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.webDic options:NSJSONWritingPrettyPrinted error:nil];
+    NSString * str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSString * loadUrl = [NSString stringWithFormat:@"%@(""%@"")",self.methodStr,str];
+    [self.myWebView stringByEvaluatingJavaScriptFromString:loadUrl];
+
 }
+
 @end

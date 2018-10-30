@@ -144,7 +144,6 @@
 
 - (void)initHeaderViews
 {
-
     _headerViews = [[NSMutableArray alloc]initWithCapacity:3];
     for (NSInteger i = 0; i < 11; i++) {
         UIView* view = [UIView new];
@@ -185,7 +184,6 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
     switch (buttonIndex) {
         case 1:
         {
@@ -206,7 +204,6 @@
             [self presentViewController:icon_picture animated:YES completion:nil];
         }
             break;
-            
         default:
             break;
     }

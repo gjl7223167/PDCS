@@ -26,7 +26,7 @@
 }
 @property(nonatomic,strong)NSArray * titlesAry;
 @property(nonatomic,assign)NSInteger        toIndex;
-@property (nonatomic, strong)ZJLPageControl * pageCtrl;
+@property(nonatomic,strong)ZJLPageControl * pageCtrl;
 @property(nonatomic,strong)ComputTableView *tableView;
 @property(nonatomic,strong)NSMutableArray * keyArys;
 
@@ -77,7 +77,6 @@
     }];
     
     [self PageControView];
-    
 }
 
 
@@ -151,10 +150,7 @@
     
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake((kWIDTH - 310) / 2.0, 43, 310, 44);
-    
-//    [button setImage:[UIImage imageNamed:@"DLButton_backIcon"] forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"DLButton_backIcon"] forState:UIControlStateNormal];
-//    button.titleLabel.text = @"价格试算";
     [button setTitle:@"价格试算" forState:UIControlStateNormal];
     button.titleLabel.textColor =  [UIColor whiteColor];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -165,7 +161,7 @@
 }
 
 -(void)jiSuanJieGuoButtonEvent:(UIButton*)button{
-    NSLog(@"产品试算计算价格");
+    NSLog(@"产品试算计算价格___%@",requestDic);
 }
 
 
@@ -183,8 +179,6 @@
 
 
 -(void)singleTableView:(NSDictionary *)dict{
-    
-   
     
     NSArray * names = dict[@"name"];
     if (names.count <= 0){
@@ -417,8 +411,6 @@
         
     }
    
-    
-    
      [self.tableView setInfoDate:self.infoDic];
 }
 

@@ -84,9 +84,7 @@
     [PDJYZKModel computRequest:PDCR_CPJGype_Url Parameter:dFH Obj:^(id obj) {
         [weakSelf aryAndJGDict:obj];
     }];
-    
 }
-
 
 
 
@@ -144,13 +142,10 @@
             }
             NSLog(@"%@  -- %@  ---- %ld -- %u",number,dicStr,selectIndex,type);
         };
-        
         self.tableListView.cancelBlock = ^(){
             [weakSelf tableListCancael];
         };
-        
         [self.view addSubview:_tableListView];
-        
     }else{
         [self.tableListView updata:info AndType:type];
     }

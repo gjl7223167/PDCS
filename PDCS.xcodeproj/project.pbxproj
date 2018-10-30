@@ -128,6 +128,9 @@
 		99580C7483DFF1ACC6F99D6B /* libPods-PDCS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F638F9F062B8DEF9D1272F /* libPods-PDCS.a */; };
 		E630E7A4AA18BB467710EF45 /* libPods-PDCSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5742BEF5BCBC2B0095CEE8 /* libPods-PDCSUITests.a */; };
 		F6B326B4DE21C01BE554AA51 /* libPods-PDCSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B8C2C6349778859103494A /* libPods-PDCSTests.a */; };
+		FD01EE3B2186B8D5001706AB /* PDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EE3A2186B8D5001706AB /* PDUtility.m */; };
+		FD01EE4221880235001706AB /* HooDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EE3E21880234001706AB /* HooDatePicker.m */; };
+		FD01EE4321880235001706AB /* NSDate+HooDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD01EE3F21880234001706AB /* NSDate+HooDatePicker.m */; };
 		FD23320F20D6008100B6C3A7 /* ALQoteUIwebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */; };
 		FD9A22DB1FBFE1010058EA69 /* HBBTMSingleTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4E2E51FA4734C00B2DFA1 /* HBBTMSingleTView.m */; };
 		FD9A22DF1FBFE1B60058EA69 /* HBSglLabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */; };
@@ -399,6 +402,12 @@
 		BA9686BC3C67894B1B8B2DB9 /* Pods-PDCS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCS/Pods-PDCS.release.xcconfig"; sourceTree = "<group>"; };
 		DAEAC6D762FF4EE678939D27 /* Pods-PDCSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAF8BCA7524A9FA8A68CB7A7 /* Pods-PDCSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDCSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDCSTests/Pods-PDCSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD01EE392186B8D4001706AB /* PDUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDUtility.h; sourceTree = "<group>"; };
+		FD01EE3A2186B8D5001706AB /* PDUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDUtility.m; sourceTree = "<group>"; };
+		FD01EE3E21880234001706AB /* HooDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HooDatePicker.m; sourceTree = "<group>"; };
+		FD01EE3F21880234001706AB /* NSDate+HooDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HooDatePicker.m"; sourceTree = "<group>"; };
+		FD01EE4021880234001706AB /* HooDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HooDatePicker.h; sourceTree = "<group>"; };
+		FD01EE4121880234001706AB /* NSDate+HooDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HooDatePicker.h"; sourceTree = "<group>"; };
 		FD23320D20D6008100B6C3A7 /* ALQoteUIwebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALQoteUIwebView.h; sourceTree = "<group>"; };
 		FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALQoteUIwebView.m; sourceTree = "<group>"; };
 		FD9A22DD1FBFE1B50058EA69 /* HBSglLabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBSglLabCell.m; sourceTree = "<group>"; };
@@ -463,6 +472,10 @@
 			children = (
 				0DEC32D91FBFF006008862CA /* TLChooseDateView.h */,
 				0DEC32DA1FBFF006008862CA /* TLChooseDateView.m */,
+				FD01EE4021880234001706AB /* HooDatePicker.h */,
+				FD01EE3E21880234001706AB /* HooDatePicker.m */,
+				FD01EE4121880234001706AB /* NSDate+HooDatePicker.h */,
+				FD01EE3F21880234001706AB /* NSDate+HooDatePicker.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -905,6 +918,8 @@
 				88D0D6021F733E7D004C5ADD /* Category */,
 				88D0D5EF1F72A7BA004C5ADD /* PDUtils.h */,
 				88D0D5F01F72A7BA004C5ADD /* PDUtils.m */,
+				FD01EE392186B8D4001706AB /* PDUtility.h */,
+				FD01EE3A2186B8D5001706AB /* PDUtility.m */,
 				88DCE9DC1F9E3044000DA50C /* Singleton.h */,
 				88D0D5FC1F72AB7E004C5ADD /* PDHeader.h */,
 				88D0D5FE1F72AD37004C5ADD /* PDRequestUrl.h */,
@@ -962,8 +977,6 @@
 		88D0D60E1F734DC8004C5ADD /* QuoteController */ = {
 			isa = PBXGroup;
 			children = (
-				0DEC32D81FBFF006008862CA /* View */,
-				88DCE9DD1F9ED968000DA50C /* Model */,
 				88D0D6221F735AA8004C5ADD /* QuoteController.h */,
 				88D0D6231F735AA8004C5ADD /* QuoteController.m */,
 				88DCE9D21F9D8D0D000DA50C /* QuoteSubGPController.h */,
@@ -976,6 +989,8 @@
 				0DEC32F91FC03AAD008862CA /* DLQuoteWebView.m */,
 				FD23320D20D6008100B6C3A7 /* ALQoteUIwebView.h */,
 				FD23320E20D6008100B6C3A7 /* ALQoteUIwebView.m */,
+				0DEC32D81FBFF006008862CA /* View */,
+				88DCE9DD1F9ED968000DA50C /* Model */,
 			);
 			name = QuoteController;
 			path = QuoteView;
@@ -1456,6 +1471,7 @@
 				88C2CDBB1F776198009003B1 /* MJRefreshBackGifFooter.m in Sources */,
 				88A4E33B1FA4C12400B2DFA1 /* ZJLPageControl.m in Sources */,
 				8884C8D21F9B070100E6D9E4 /* PDCSSegmentedView.m in Sources */,
+				FD01EE4221880235001706AB /* HooDatePicker.m in Sources */,
 				88A4E2DA1FA378B900B2DFA1 /* QuoteSubSCController.m in Sources */,
 				88A4E33E1FA4C58300B2DFA1 /* ComputTableView.m in Sources */,
 				88C2CDB81F776198009003B1 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1477,6 +1493,7 @@
 				88D0D6201F735A14004C5ADD /* MyTabbar.m in Sources */,
 				88C2CDBC1F776198009003B1 /* MJRefreshBackNormalFooter.m in Sources */,
 				88DCE9CB1F9B7F53000DA50C /* TwoTableView.m in Sources */,
+				FD01EE4321880235001706AB /* NSDate+HooDatePicker.m in Sources */,
 				0DEC32D41FBFE196008862CA /* DLLoginCodeView.m in Sources */,
 				88D0D6181F7350C6004C5ADD /* PDNavigationController.m in Sources */,
 				88C2CDBA1F776198009003B1 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1493,6 +1510,7 @@
 				88D0D6051F733E8A004C5ADD /* UIView+Utils.m in Sources */,
 				88C2CDB71F776198009003B1 /* MJRefreshHeader.m in Sources */,
 				88DCE9D81F9DF32F000DA50C /* UserModel.m in Sources */,
+				FD01EE3B2186B8D5001706AB /* PDUtility.m in Sources */,
 				88DCE9CE1F9D808D000DA50C /* ComputSubController.m in Sources */,
 				88D0D61B1F7358C4004C5ADD /* PDFSViewController.m in Sources */,
 				FD9A22EC1FC134610058EA69 /* PDJYZKModel.m in Sources */,

@@ -9,13 +9,15 @@
 #import "QuoteSubFTPController.h"
 #import "QuoteHeader.h"
 #import "DLQuoteWebView.h"
+#import "ALQoteUIwebView.h"
 @interface QuoteSubFTPController ()<WKUIDelegate,WKNavigationDelegate,UIScrollViewDelegate>
 {
     QuoteDataModel * dataTypeModel;
     NSInteger cSelectIndex;
     currentType ctype;
 }
-@property(nonatomic,strong)DLQuoteWebView * webView;
+//@property(nonatomic,strong)DLQuoteWebView * webView;
+@property(nonatomic,strong)ALQoteUIwebView * webView;
 
 @property(nonatomic,strong)NSMutableArray * titlesAry;
 
@@ -166,7 +168,7 @@
     
     CGSize vSize = self.view.size;
     if (_webView == nil) {
-        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
+        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height-(iOSNavHeight+SegmentedH)- kTabbarH)];
         [self.view addSubview:_webView];
         NSString * today  = [NSString todayString];
         

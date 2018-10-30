@@ -234,10 +234,7 @@
     
     CGSize vSize = self.view.size;
     if (_webView == nil) {
-//        _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
-
-        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH)];
-
+        _webView = [[ALQoteUIwebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height-(iOSNavHeight+SegmentedH)- kTabbarH)];
         [self.view addSubview:_webView];
          NSString * today  = [NSString todayString];
         self.qianString = @"CNY";

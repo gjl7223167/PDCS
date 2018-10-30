@@ -36,26 +36,25 @@
 #define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#define IS_IPHONE_8X (IS_IPHONE && SCREEN_MAX_LENGTH > 736 && SCREEN_MAX_LENGTH<=812)
-
+#define IS_IPHONE_8X (IS_IPHONE && ((SCREEN_MAX_LENGTH > 736 && SCREEN_MAX_LENGTH<=812) || (IS_IPHONE && SCREEN_MAX_LENGTH > 812 && SCREEN_MAX_LENGTH<=896)))
 // block self
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 #define kUserDefault [NSUserDefaults standardUserDefaults]
 
 
-#define kTabbarH    49.0f
+
 
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 
 #define v(x) (MIN(SCREEN_HEIGHT, SCREEN_WIDTH) / 320 * x)
 
+#define kTabbarH                  (IS_IPHONE_8X?83:49)
+#define iphoneXBottomAreaHeight   (IS_IPHONE_8X?34:0)
+#define iOSNavHeight              (IS_IPHONE_8X?88:64)
 
-#define kNaviBarH ((ISIOS7AndAbove) ? 64.0f : 44.0f)
+
 #define SegmentedH AdaH(34)
-
-
-
 
 
 

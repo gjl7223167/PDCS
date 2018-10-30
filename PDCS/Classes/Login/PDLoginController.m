@@ -10,7 +10,6 @@
 #import "LCMD5Tool.h"
 #import "MyTabbar.h"
 #import "DLLoginCodeView.h"
-#import "TLChooseDateView.h"
 #import "AppDelegate.h"
 
 @interface PDLoginController ()<UITextFieldDelegate>
@@ -121,25 +120,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)changeCode:(id)sender {
-//    [_codeView changeCode];
-    [self show];
-}
-
--(void)show{
-    NSString *dateStrs = @"2014-01-01-18:10:00";
-    NSDateFormatter *formatterTime = [NSDateFormatter new];
-    formatterTime.dateFormat = @"yyyy-MM-dd-HH:mm:ss";
-    formatterTime.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-    NSDate *dateTime = [formatterTime dateFromString:dateStrs];
-    
-    NSString *dateStrs1 = @"2018-01-01-18:10:00";
-    NSDateFormatter *formatterTime1 = [NSDateFormatter new];
-    formatterTime1.dateFormat = @"yyyy-MM-dd-HH:mm:ss";
-    formatterTime1.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-    NSDate *dateTime1 = [formatterTime1 dateFromString:dateStrs1];
-    
-    TLChooseDateView * dateView = [[TLChooseDateView alloc] initWithRootView:self.navigationController.view start:dateTime end:dateTime1];
-    [dateView showView];
+    [_codeView changeCode];
 }
 
 - (IBAction)clickLogBtn:(id)sender {

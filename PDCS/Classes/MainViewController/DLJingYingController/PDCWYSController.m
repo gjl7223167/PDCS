@@ -52,7 +52,6 @@
 
 -(void)requestKWView{
     UserModel * model = [[UserModelTool sharedUserModelTool] readMessageObject];
-    
 }
 
 
