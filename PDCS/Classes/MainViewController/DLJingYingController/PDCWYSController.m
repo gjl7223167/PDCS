@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self initView];
     [self PageControView];
     
 }
@@ -47,7 +47,19 @@
 }
 
 -(void)showTableListAndData:(NSInteger )dTag{
-    
+    NSString * url = nil;
+    if (dTag == 0){
+        url = [NSString stringWithFormat:@"%@state_chart_611.html",RDefaultUrl];
+    }else if (dTag == 1){
+        url =  [NSString stringWithFormat:@"%@state_chart_621.html",RDefaultUrl];
+    }else if (dTag == 2){
+        url = [NSString stringWithFormat:@"%@state_table_631.html",RDefaultUrl];
+    }else if (dTag == 3){
+        url = [NSString stringWithFormat:@"%@state_table_632.html",RDefaultUrl];
+    }
+    if (![NSString isStringEmpty:url]){
+        [_webView requestURL:url JSString:@""];
+    }
 }
 
 -(void)requestKWView{
@@ -59,12 +71,9 @@
 -(void)initView{
     CGSize vSize = self.view.size;
     if (_webView == nil) {
-        
         _webView = [[DLQuoteWebView alloc] initWithFrame:CGRectMake(0, SegmentedH, vSize.width, vSize.height - SegmentedH) configuration:nil VC:self];
         [self.view addSubview:_webView];
         
-        NSString * today  = [NSString todayString];
-       
     }
     
 }
